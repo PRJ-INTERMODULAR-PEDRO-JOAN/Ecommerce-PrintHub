@@ -1,0 +1,94 @@
+ /* Estilos generales del body */
+body {
+  font-family: Arial, sans-serif;
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* Títulos */
+h1 {
+  text-align: center;
+  color: #0044cc;
+  margin-bottom: 1.5rem;
+}
+
+/* Estilos del formulario */
+form {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 68, 204, 0.1);
+}
+
+/* Etiquetas */
+label {
+  display: block;
+  font-weight: bold;
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+  color: #0044cc;
+}
+
+/* Inputs y textarea */
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  border-color: #0044cc;
+  outline: none;
+}
+
+/* Textarea con altura más grande */
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Botón enviar */
+button {
+  margin-top: 1.5rem;
+  background-color: #0044cc;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0033aa;
+}
+
+/* Mensajes de error o éxito */
+#formMessage {
+  margin-top: 1rem;
+  font-weight: bold;
+  min-height: 1.2rem; /* Para que no salte contenido al mostrar mensaje */
+}
+
+/* Mensajes de error */
+#formMessage[style*="red"] {
+  color: #cc0000;
+}
+
+/* Mensajes de éxito */
+#formMessage[style*="green"] {
+  color: #008800;
+}
+

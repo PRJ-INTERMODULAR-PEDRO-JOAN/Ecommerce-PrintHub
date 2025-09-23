@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Formulari de Contacte</title>
+    <link rel="stylesheet" href="formstyle.css" />
+  </head>
+  <body>
+    <h1>Formulari de Contacte</h1>
+
+    <form
+      id="contactForm"
+      method="POST"
+      action="http://localhost:80/contact.php"
+    >
+      <label for="name">Nom:</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="email">Correu electrònic:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="message">Missatge:</label>
+      <textarea id="message" name="message" required></textarea>
+
+      <button type="submit">Enviar</button>
+    </form>
+
+    <div id="formMessage"></div>
+
+    <script src="form.js"></script>
+  </body>
+</html>
