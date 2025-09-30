@@ -1,61 +1,74 @@
 <!DOCTYPE html>
 <html lang="ca">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Pàgina d'Inici - Empresa</title>
-    <link rel="stylesheet" href="src/styles.css" />
-  </head>
-  <body>
-    <!-- Capçalera -->
-    <header>
-      <div class="logo">
-        <img src="public/logoPrintHub.png" alt="Logo de l'empresa" />
-      </div>
-      <nav>
-        <ul>
-          <li><a href="#">Inici</a></li>
-          <li><a href="#">Serveis</a></li>
-          <li><a href="#">Productes</a></li>
-          <li><a href="src/form.html">Contacte Form</a></li>
-        </ul>
-      </nav>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pàgina d'Inici - Empresa</title>
+  <link rel="stylesheet" href="src/styles.css" />
+  <link rel="icon" type="image/x-icon" href="public/posiblelogo.ico">
+</head>
+<body>
+  <!-- Botó per obrir/ocultar menú lateral -->
+<button class="menu-toggle">☰</button>
 
-    <!-- Secció destacada -->
-    <section class="featured-products">
-      <h1>Productes Destacats</h1>
-      <div class="product-card">
-        <img src="public/FiguraLink.png" alt="Producte 1" />
-        <h2>Producte 1</h2>
-        <p>Descripció curta del producte.</p>
-        <button class="btn">Veure més</button>
-      </div>
-      <div class="product-card">
-        <img src="product2.jpg" alt="Producte 2" />
-        <h2>Producte 2</h2>
-        <p>Descripció curta del producte.</p>
-        <button class="btn">Veure més</button>
-      </div>
-      <div class="product-card">
-        <img src="product3.jpg" alt="Producte 3" />
-        <h2>Producte 3</h2>
-        <p>Descripció curta del producte.</p>
-        <button class="btn">Veure més</button>
-      </div>
-    </section>
+<!-- Barra lateral -->
+<aside class="sidebar">
+  <div class="logo">
+    <img src="public/logoPrintHub.png" alt="Logo de l'empresa" />
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#">Inici</a></li>
+      <li><a href="#">Serveis</a></li>
+      <li><a href="#">Productes</a></li>
+      <li><a href="src/form.html">Contacte Form</a></li>
+    </ul>
+  </nav>
+</aside>
 
-    <!-- Peu de pàgina -->
-    <footer>
-      <p>&copy; 2025 PrintHub. Tots els drets reservats.</p>
-      <div class="socials">
-        <a href="#">Facebook</a>
-        <a href="#">Twitter</a>
-        <a href="#">Instagram</a>
-      </div>
-    </footer>
 
-    <script src="src/script.js"></script>
-  </body>
+  <!-- Secció hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Benvingut a PrintHub</h1>
+      <p>Innovació i qualitat en cada producte</p>
+      <a href="#featured" class="arrow">&#x25BC;</a>
+    </div>
+  </section>
+
+  <!-- Secció productes destacats -->
+  <section id="featured" class="featured-products">
+    <h1>Productes Destacats</h1>
+    <div class="product-card">
+      <img src="public/FiguraLink.png" alt="Producte 1" />
+      <h2>Producte 1</h2>
+      <p>Descripció curta del producte.</p>
+      <button class="btn">Veure més</button>
+    </div>
+    <div class="product-card">
+      <img src="product2.jpg" alt="Producte 2" />
+      <h2>Producte 2</h2>
+      <p>Descripció curta del producte.</p>
+      <button class="btn">Veure més</button>
+    </div>
+    <div class="product-card">
+      <img src="product3.jpg" alt="Producte 3" />
+      <h2>Producte 3</h2>
+      <p>Descripció curta del producte.</p>
+      <button class="btn">Veure més</button>
+    </div>
+  </section>
+
+  <!-- Peu de pàgina -->
+  <footer>
+    <p>&copy; 2025 PrintHub. Tots els drets reservats.</p>
+    <div class="socials">
+      <a href="#">Facebook</a>
+      <a href="#">Twitter</a>
+      <a href="#">Instagram</a>
+    </div>
+  </footer>
+
+  <script src="src/script.js"></script>
+</body>
 </html>
