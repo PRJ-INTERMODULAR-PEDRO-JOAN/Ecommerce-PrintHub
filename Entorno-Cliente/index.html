@@ -3,65 +3,116 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pàgina d'Inici - Empresa</title>
-  <link rel="stylesheet" href="src/styles.css" />
-  <link rel="icon" type="image/x-icon" href="public/posiblelogo.ico">
+  <title>PrintHub</title>
+  <link rel="stylesheet" href="src/css/styles.css" />
+  <link rel="icon" type="image/x-icon" href="/logoPrintHubIcon.ico">
 </head>
 <body>
   <!-- Botó per obrir/ocultar menú lateral -->
-<button class="menu-toggle">☰</button>
+  <button class="menu-toggle">☰</button>
 
-<!-- Barra lateral -->
-<aside class="sidebar">
-  <div class="logo">
-    <img src="public/logoPrintHub.png" alt="Logo de l'empresa" />
+  <!-- Barra lateral -->
+  <aside class="sidebar">
+    <br><br><br>
+    <center>
+      <h1>Print<span class="highlight">Hub</span></h1>
+    </center>
+    <br>
+    <div class="logo">
+      <img src="/logoPrintHub.jpeg" alt="Logo de l'empresa" />
+    </div>
+    <p>Menu</p>
+    <nav>
+      <ul>
+        <li><a href="http://localhost:5173">Inicio</a></li>
+
+        <!-- Menú desplegable -->
+        <li class="dropdown">
+          <a href="#" class="dropbtn">Maquetas Personalizadas ▾</a>
+          <ul class="dropdown-content">
+            <li><a href="#">Videojuegos</a></li>
+            <li><a href="#">Arquitectura</a></li>
+            <li><a href="#">Automóviles</a></li>
+          </ul>
+        </li>
+
+        <li><a href="#">Diseñar Maquetas</a></li>
+        <li><a href="#">Galeria de Proyectos</a></li>
+        <li><a href="/src/form.html">Formulario Contacto</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <div class="banner">
+    <div class="banner-text">
+      ¡Oferta especial de Halloween! 🎃 Solo por tiempo limitado, hasta el 31 de octubre.
+    </div>
   </div>
-  <nav>
-    <ul>
-      <li><a href="#">Inici</a></li>
-      <li><a href="#">Serveis</a></li>
-      <li><a href="#">Productes</a></li>
-      <li><a href="src/form.html">Contacte Form</a></li>
-    </ul>
-  </nav>
-</aside>
-
 
   <!-- Secció hero -->
   <section class="hero">
     <div class="hero-content">
-      <h1>Benvingut a PrintHub</h1>
-      <p>Innovació i qualitat en cada producte</p>
+      <h1>Bienvenido/a a Print<span class="highlight">Hub</span></h1>
+      <p>Innovación y calidad en cada producto</p>
       <a href="#featured" class="arrow">&#x25BC;</a>
     </div>
   </section>
 
   <!-- Secció productes destacats -->
   <section id="featured" class="featured-products">
-    <h1>Productes Destacats</h1>
+    <h1>Productos Destacados</h1>
     <div class="product-card">
-      <img src="public/FiguraLink.png" alt="Producte 1" />
-      <h2>Producte 1</h2>
-      <p>Descripció curta del producte.</p>
-      <button class="btn">Veure més</button>
+      <img src="FiguraLink.png" alt="Producte 1" />
+      <h2>Figura Link</h2>
+      <p>Descripción Producto.</p>
+      <button class="btn">Ver Más</button>
     </div>
     <div class="product-card">
-      <img src="product2.jpg" alt="Producte 2" />
-      <h2>Producte 2</h2>
-      <p>Descripció curta del producte.</p>
-      <button class="btn">Veure més</button>
+      <img src="Maqueta_Sagrada_Familia.png" alt="Producte 2" />
+      <h2>Figura Sagrada Familia</h2>
+      <p>Descripción Producto.</p>
+      <button class="btn">Ver Más</button>
     </div>
     <div class="product-card">
-      <img src="product3.jpg" alt="Producte 3" />
-      <h2>Producte 3</h2>
-      <p>Descripció curta del producte.</p>
-      <button class="btn">Veure més</button>
+      <img src="lambo_2.png" alt="Producte 3" />
+      <h2>Figura Lamborghini</h2>
+      <p>Descripción Producto.</p>
+      <button class="btn">Ver Más</button>
+    </div>
+    <div class="product-card">
+      <img src="aatrox.png" alt="Producte 4" />
+      <h2>Figura Videojuego</h2>
+      <p>Descripción Producto.</p>
+      <button class="btn">Ver Más</button>
     </div>
   </section>
 
+  <!-- Secció noticias con carrusel -->
+<section class="news-section">
+  <div class="news-left">
+    <h2>¡Mantente al día con nuestras últimas noticias y novedades!</h2>
+    <p>Descubre los proyectos más recientes y tendencias en impresión 3D.</p>
+  </div>
+  <div class="news-right">
+    <div class="carousel">
+      <button class="carousel-btn prev">&#10094;</button>
+      <div class="carousel-track-container">
+        <ul class="carousel-track">
+          <li class="carousel-slide"><img src="Paris.jpg" alt="Noticia 1"></li>
+          <li class="carousel-slide"><img src="impresoraNoticia.jpg" alt="Noticia 2"></li>
+          <li class="carousel-slide"><img src="Paris.jpg" alt="Noticia 3"></li>
+          <li class="carousel-slide"><img src="Paris.jpg" alt="Noticia 4"></li>
+        </ul>
+      </div>
+      <button class="carousel-btn next">&#10095;</button>
+    </div>
+  </div>
+</section>
+
+
   <!-- Peu de pàgina -->
   <footer>
-    <p>&copy; 2025 PrintHub. Tots els drets reservats.</p>
+    <p>&copy; 2025 PrintHub. Todos los derechos reservados.</p>
     <div class="socials">
       <a href="#">Facebook</a>
       <a href="#">Twitter</a>
@@ -69,6 +120,6 @@
     </div>
   </footer>
 
-  <script src="src/script.js"></script>
+  <script src="src/js/script.js"></script>
 </body>
 </html>

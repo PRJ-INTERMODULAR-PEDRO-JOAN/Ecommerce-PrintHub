@@ -1,0 +1,204 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  overflow-x: hidden;
+  padding: 2rem 1rem;
+}
+
+/* --- Barra lateral a la derecha --- */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -260px;
+  width: 260px;
+  height: 100%;
+  background-color: #fefefe;
+  color: #333;
+  padding: 2rem 1rem;
+  transition: right 0.4s ease, box-shadow 0.4s ease;
+  z-index: 1000;
+  box-shadow: -4px 0 12px rgba(0,0,0,0.1);
+  border-left: 1px solid #ddd;
+  border-radius: 8px 0 0 8px;
+}
+
+.sidebar.active {
+  right: 0;
+}
+
+.sidebar .logo img {
+  width: 130px;
+  display: block;
+  margin: 0 auto 2rem;
+}
+
+.sidebar nav ul {
+  list-style: none;
+}
+
+.sidebar nav ul li {
+  margin: 1.2rem 0;
+}
+
+.sidebar nav ul li a {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  display: block;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.sidebar nav ul li a:hover {
+  background: #f0f0f0;
+  color: #0044cc;
+}
+
+  /* Botón hamburguesa */
+  .menu-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #666;
+    color: #fff;
+    border: none;
+    padding: 12px 16px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 8px;
+    z-index: 1100;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  
+  .menu-toggle:hover {
+    background: #555;
+    transform: scale(1.05);
+  }
+
+/* --- Contenedor formulario --- */
+.container {
+  max-width: 650px;
+  margin: 5rem auto;
+  padding: 2.5rem;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: 600;
+  margin-top: 1rem;
+  margin-bottom: 0.4rem;
+  color: #555;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1.5px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: #fafafa;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #999;
+  outline: none;
+  box-shadow: 0 0 6px rgba(0,0,0,0.1);
+}
+
+textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+/* Botón enviar */
+button {
+  margin-top: 2rem;
+  background-color: #777;
+  color: white;
+  border: none;
+  padding: 0.9rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+/* Mensajes de validación */
+#formMessage {
+  margin-top: 1.5rem;
+  font-weight: bold;
+  min-height: 1.4rem;
+  text-align: center;
+  font-size: 1rem;
+}
+
+#formMessage.error {
+  color: #d63031;
+}
+
+#formMessage.success {
+  color: #27ae60;
+}
+
+/* --- Dropdown --- */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  list-style: none;
+  padding-left: 15px;
+}
+
+.dropdown-content li a {
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+}
+
+.dropdown-content.show {
+  display: block;
+}
+
+.highlight {
+  background-color: orange; /* Fondo naranja */
+  color: rgb(0, 0, 0);             /* Texto blanco opcional para contraste */
+  padding: 0 5px;           /* Espacio a los lados */
+  border-radius: 4px;       /* Opcional: esquinas redondeadas */
+}

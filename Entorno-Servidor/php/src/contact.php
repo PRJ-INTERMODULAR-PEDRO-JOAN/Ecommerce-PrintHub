@@ -17,7 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   if (strlen($message) < 10) {
     $errors[] = "El mensaje debe tener al menos 10 caracteres.";
   }
-
   ?>
   <!DOCTYPE html>
   <html lang="es">
@@ -25,56 +24,70 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta charset="UTF-8">
     <title>Resultado del formulario</title>
     <style>
+      /* --- Reset y body --- */
+      * { margin:0; padding:0; box-sizing:border-box; }
       body {
-        font-family: Arial, sans-serif;
-        background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #f0f4ff, #e6ecff);
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100vh;
         margin: 0;
+        padding: 1rem;
       }
+
+      /* --- Contenedor --- */
       .container {
         background: #fff;
-        padding: 25px 35px;
-        border-radius: 15px;
-        box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+        padding: 30px 40px;
+        border-radius: 16px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         max-width: 450px;
         width: 100%;
         text-align: center;
         animation: fadeIn 0.8s ease-in-out;
       }
+
       @keyframes fadeIn {
         from { opacity: 0; transform: translateY(-20px); }
         to { opacity: 1; transform: translateY(0); }
       }
+
+      /* --- Mensajes --- */
       .error {
         color: #b00020;
         background: #fdecea;
-        padding: 10px;
+        padding: 12px;
         border-radius: 8px;
-        margin-bottom: 10px;
+        margin-bottom: 12px;
       }
+
       .success {
         color: #0a7b39;
         background: #e6f9ed;
-        padding: 10px;
+        padding: 12px;
         border-radius: 8px;
-        margin-bottom: 10px;
+        margin-bottom: 12px;
       }
+
+      /* --- Botones --- */
       .btn {
         display: inline-block;
         margin-top: 15px;
+        margin-right: 10px;
         padding: 10px 18px;
-        background: #007BFF;
+        background: #666;
         color: #fff;
-        font-weight: bold;
+        font-weight: 600;
         border-radius: 8px;
         text-decoration: none;
-        transition: 0.3s;
+        transition: background 0.3s ease, transform 0.2s ease;
       }
+
       .btn:hover {
-        background: #0056b3;
+        background: #555;
+        transform: translateY(-2px);
       }
     </style>
   </head>
@@ -86,12 +99,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
           echo "<div class='error'>$error</div>";
         }
         echo '<a href="javascript:history.back()" class="btn">← Volver al formulario</a>';
-        echo '<br><a href="http://localhost:5173" class="btn">🏠 Página inicial</a>';
+        echo '<a href="index.html" class="btn">🏠 Página inicial</a>';
         exit;
       }
 
       echo "<div class='success'>Formulario recibido correctamente. ¡Gracias!</div>";
-      echo '<a href="http://localhost:5173" class="btn">🏠 Ir a la página inicial</a>';
+      echo '<a href="index.html" class="btn">🏠 Ir a la página inicial</a>';
       ?>
     </div>
   </body>
