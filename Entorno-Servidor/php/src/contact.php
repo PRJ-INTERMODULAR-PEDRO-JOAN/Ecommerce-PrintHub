@@ -111,7 +111,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   </html>
   <?php
 } else {
-  header("Location: index.html");
+  header("Location: ../../Entorno-Cliente/src/index.html");
   exit;
 }
 ?>
