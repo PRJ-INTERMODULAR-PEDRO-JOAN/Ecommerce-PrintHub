@@ -130,11 +130,11 @@ body {
 ================================ */
 .form-container {
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 100px 20px;
+  justify-content: center;  /* Centra horizontalmente */
+  align-items: center;      /* Centra verticalmente */
+  padding: 0 20px;          /* Quita el padding superior que empuja la card hacia abajo */
+  min-height: 100vh;        /* Hace que ocupe toda la altura de la ventana */
   background: linear-gradient(135deg, #f9fafb 0%, #eef2f7 100%);
-  min-height: 100vh;
 }
 
 .contact-section {
@@ -146,6 +146,7 @@ body {
   width: 100%;
   animation: fadeInUp 0.8s ease;
 }
+
 
 .contact-section h1 {
   text-align: center;
