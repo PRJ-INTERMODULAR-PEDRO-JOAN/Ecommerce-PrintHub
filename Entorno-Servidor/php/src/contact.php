@@ -104,7 +104,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       }
 
       echo "<div class='success'>Formulario recibido correctamente. ¡Gracias!</div>";
-      echo '<a href="index.html" class="btn">🏠 Ir a la página inicial</a>';
+      echo '<a href="http://localhost:5173" class="btn">🏠 Ir a la página inicial</a>';
       ?>
     </div>
   </body>
