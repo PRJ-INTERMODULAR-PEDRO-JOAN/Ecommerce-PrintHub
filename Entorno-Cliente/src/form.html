@@ -1,34 +1,32 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="ca">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Formulario Contacto - PrintHub</title>
   <link rel="stylesheet" href="css/formstyle.css" />
   <link rel="icon" type="image/x-icon" href="/logoPrintHubIcon.ico">
 </head>
 <body>
-  <!-- Botón hamburguesa -->
+
+  <!-- Botó per obrir/ocultar menú lateral -->
   <button class="menu-toggle">☰</button>
-  
+
   <!-- Barra lateral -->
   <aside class="sidebar">
-    <br>
-    <br>
-    <br>
-    <br>
+    <br><br><br>
     <center>
       <h1>Print<span class="highlight">Hub</span></h1>
     </center>
+    <br>
     <div class="logo">
       <img src="/logoPrintHub.jpeg" alt="Logo de l'empresa" />
     </div>
-    <p>Menu</p>
+    <p>Menú</p>
     <nav>
       <ul>
-        <li><a href="http://localhost:5173">Inici</a></li>
+        <li><a href="http://localhost:5173">Inicio</a></li>
 
-        <!-- Menú desplegable -->
         <li class="dropdown">
           <a href="#" class="dropbtn">Maquetas Personalizadas ▾</a>
           <ul class="dropdown-content">
@@ -39,36 +37,86 @@
         </li>
 
         <li><a href="#">Diseñar Maquetas</a></li>
-        <li><a href="#">Galeria de Proyectos</a></li>
-        <li><a href="/src/form.html">Formulario Contacto</a></li>
+        <li><a href="#">Galería de Proyectos</a></li>
+        <li><a href="/src/form.html" class="active">Formulario Contacto</a></li>
       </ul>
     </nav>
   </aside>
 
   <!-- Contenido principal -->
-  <main class="container">
-    <h1>Formulari de Contacte</h1>
+  <main class="form-container">
+    <section class="contact-section">
+      <h1>Contacta amb <span class="highlight">PrintHub</span></h1>
+      <p class="subtitle">Envia’ns el teu missatge i et respondrem el més aviat possible.</p>
 
-    <form
-      id="contactForm"
-      method="POST"
-      action="http://localhost:80/contact.php"
-    >
-      <label for="name">Nom:</label>
-      <input type="text" id="name" name="name" required />
+      <form id="contactForm" method="POST" action="http://localhost:80/contact.php">
+        <label for="name">Nom:</label>
+        <input type="text" id="name" name="name" placeholder="El teu nom">
 
-      <label for="email">Correu electrònic:</label>
-      <input type="email" id="email" name="email" required />
+        <label for="email">Correu electrònic:</label>
+        <input type="email" id="email" name="email" placeholder="elmeu@email.com">
 
-      <label for="message">Missatge:</label>
-      <textarea id="message" name="message" required></textarea>
+        <label for="message">Missatge:</label>
+        <textarea id="message" name="message" placeholder="Escriu el teu missatge aquí..."></textarea>
 
-      <button type="submit">Enviar</button>
-    </form>
+        <!-- Checkbox de aceptación -->
+        <div class="checkbox-container">
+          <input type="checkbox" id="terms" name="terms">
+          <label for="terms">
+            Accepto els <a href="/terminos.html" target="_blank">termes i condicions</a> i la 
+            <a href="/privacidad.html" target="_blank">política de privacitat</a>.
+          </label>
+        </div>
 
-    <div id="formMessage"></div>
+        <button type="submit" class="btn">Enviar</button>
+      </form>
+
+      <div id="formMessage"></div>
+    </section>
   </main>
 
+  <!-- Footer (idéntico al principal) -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <h2 class="logo">
+          Print<span class="highlight">Hub</span>
+        </h2>
+        <br>
+        <div>
+          <a class="social-icons" href="#"><img src="/facebook.jpg" alt="Facebook"></a>
+          <a class="social-icons" href="#"><img src="/linkedIn.png" alt="LinkedIn"></a>
+          <a class="youtube-icons" href="#"><img src="/youtube.png" alt="YouTube"></a>
+          <a class="social-icons" href="#"><img src="/insta.jpg" alt="Instagram"></a>
+        </div>
+      </div>
+
+      <div class="footer-center">
+        <img src="/fotterImage.png" alt="Imagen global 3D">
+      </div>
+
+      <div class="footer-right">
+        <div class="services">
+          <h3>Servicios y productos</h3>
+          <ul>
+            <li><a href="#">Fabricación aditiva 3D</a></li>
+            <li><a href="#">Servicio de Impresión 3D</a></li>
+            <li><a href="#">Prototipado 3D</a></li>
+            <li><a href="#">Ingeniería y diseño</a></li>
+          </ul>
+        </div>
+        <div class="contact">
+          <h3>Contacto</h3>
+          <ul>
+            <li>📞 (+34) 951 753 852</li>
+            <li>📧 <a href="mailto:printhub@contact.me">printhub@contact.me</a></li>
+            <li>📍 Partida Cotes Altes, 27, 03804 Alcoi, Alicante</li>
+            <li>🕒 Lunes – Viernes: 8:00 – 13:30</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
 
   <script src="js/form.js"></script>
 </body>
