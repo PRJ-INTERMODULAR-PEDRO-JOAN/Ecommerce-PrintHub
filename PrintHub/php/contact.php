@@ -28,6 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   <head>
     <meta charset="UTF-8">
     <title>Resultado del formulario</title>
+    <link rel="icon" type="image/x-icon" href="/public/logoPrintHubIcon.ico">
     <style>
       /* --- Reset y body --- */
       * { margin:0; padding:0; box-sizing:border-box; }
@@ -104,19 +105,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
           echo "<div class='error'>$error</div>";
         }
         echo '<a href="javascript:history.back()" class="btn">← Volver al formulario</a>';
-        echo '<a href="index.html" class="btn">🏠 Página inicial</a>';
+        echo '<a href="http://localhost" class="btn">🏠 Página inicial</a>';
         exit;
       }
 
       echo "<div class='success'>Formulario recibido correctamente. ¡Gracias!</div>";
-      echo '<a href="http://localhost:5173" class="btn">🏠 Ir a la página inicial</a>';
+      echo '<a href="http://localhost" class="btn">🏠 Ir a la página inicial</a>';
       ?>
     </div>
   </body>
   </html>
   <?php
 } else {
-  header("Location: ../../Entorno-Cliente/src/index.html");
+  header("Location: http://localhost");
   exit;
 }
 ?>

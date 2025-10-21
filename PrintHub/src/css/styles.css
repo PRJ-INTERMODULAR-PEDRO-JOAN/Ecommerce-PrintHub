@@ -165,7 +165,6 @@ body {
 ================================ */
 .hero {
   height: 100vh;
-  background: url("/fondoPrincipio.jpeg") no-repeat center center/cover;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -219,7 +218,6 @@ body {
 
 .creeper-hero {
   height: 100vh;
-  background: url("/creeper.png") no-repeat center center/cover;
   display: flex;
   justify-content: center; /* Centra horizontalmente */
   align-items: flex-start; /* Alinea arriba */
