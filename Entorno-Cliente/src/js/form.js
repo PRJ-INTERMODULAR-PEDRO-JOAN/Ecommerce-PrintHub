@@ -61,8 +61,6 @@ const validateForm = () => {
 form.addEventListener('submit', function (event) {
   event.preventDefault(); // Evita envío por defecto
 
-  const termsAccepted = termsInput.checked;
-
   // Si no se aceptaron los términos, se validan todos los campos
   const errors = validateForm();
 

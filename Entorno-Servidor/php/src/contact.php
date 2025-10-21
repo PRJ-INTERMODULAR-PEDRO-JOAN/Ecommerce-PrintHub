@@ -3,6 +3,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   $name = trim($_POST["name"] ?? "");
   $email = trim($_POST["email"] ?? "");
   $message = trim($_POST["message"] ?? "");
+  $terms = trim($_POST["terms"] ?? "");
 
   $errors = [];
 
@@ -16,6 +17,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
   if (strlen($message) < 10) {
     $errors[] = "El mensaje debe tener al menos 10 caracteres.";
+  }
+
+  if ($terms !== "on") {
+    $errors[] = "Debe aceptar los términos y condiciones.";
   }
   ?>
   <!DOCTYPE html>
