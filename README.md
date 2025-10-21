@@ -42,11 +42,14 @@ sudo docker compose up -d
 
 Esto iniciará los servicios necesarios para que el servidor pueda realizar la validación correcta y mantener la comunicación con el entorno cliente.
 
+---
+
 🗂️ Kanban del Proyecto
 Consulta el progreso, tareas y planificación del proyecto en nuestro tablero Kanban:
 
 🔗 Ver tablero en GitHub Projects → [Kanban](https://github.com/orgs/PRJ-INTERMODULAR-PEDRO-JOAN/projects/1)
 
+---
 
 🧠 Tecnologías principales
 
