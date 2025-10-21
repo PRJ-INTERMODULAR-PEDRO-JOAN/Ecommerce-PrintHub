@@ -7,11 +7,11 @@ Este repositorio contiene tanto el entorno **cliente** como el **servidor**, jun
 
 ## 🧩 Estructura del Proyecto
 
-Printhub/
-├── Entorno-Cliente/ # Aplicación Frontend (Vite)
-├── Entorno-Servidor/ # Backend con Docker
-├── Documentacion-Riesgos-Laborables # Documentos necesarios para mantener precaución
-└── README.md # Este archivo
+Printhub
+1. Entorno-Cliente/ # Aplicación Frontend (Vite)
+2. Entorno-Servidor/ # Backend con Docker
+3. Documentacion-Riesgos-Laborables # Documentos necesarios para mantener precaución
+4. README.md # Este archivo
 
 
 ---
@@ -45,7 +45,7 @@ Esto iniciará los servicios necesarios para que el servidor pueda realizar la v
 🗂️ Kanban del Proyecto
 Consulta el progreso, tareas y planificación del proyecto en nuestro tablero Kanban:
 
-🔗 Ver tablero en GitHub Projects → [![Kanban Board]](https://github.com/orgs/PRJ-INTERMODULAR-PEDRO-JOAN/projects/1)
+🔗 Ver tablero en GitHub Projects → [Kanban](https://github.com/orgs/PRJ-INTERMODULAR-PEDRO-JOAN/projects/1)
 
 
 🧠 Tecnologías principales
