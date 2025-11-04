@@ -28,7 +28,7 @@ Printhub
 sudo docker compose up -d
 
 Esto iniciará los servicios necesarios para que el servidor pueda realizar la validación correcta y mantener la comunicación con el entorno cliente.
-También iniciara el entorno cliente que se podra acceder desde ([Enlace --> ]([http://localhost:80)]
+También iniciara el entorno cliente que se podra acceder desde [Enlace --> ](http://localhost:80)
 
 ---
 
