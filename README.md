@@ -18,20 +18,7 @@ Printhub
 
 ## 🚀 Inicialización del entorno de desarrollo
 
-### 🖥️ Entorno Cliente
-
-1. Abre una terminal en la carpeta del proyecto:
-
-   cd Entorno-Cliente
-
-2. Lanza el entorno de desarrollo:
-
-    npm run dev
-
-Una vez levantado, puedes acceder al sitio web en tu navegador en:
-👉 http://localhost:5173
-
-⚙️ Entorno Servidor
+⚙️ Entorno Servidor / Cliente
 1. Abre una terminal en la carpeta del servidor:
 
     cd Entorno-Servidor
@@ -41,6 +28,7 @@ Una vez levantado, puedes acceder al sitio web en tu navegador en:
 sudo docker compose up -d
 
 Esto iniciará los servicios necesarios para que el servidor pueda realizar la validación correcta y mantener la comunicación con el entorno cliente.
+También iniciara el entorno cliente que se podra acceder desde ([Enlace --> ]([http://localhost:80)]
 
 ---
 
