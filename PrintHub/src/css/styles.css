@@ -43,28 +43,25 @@ body {
   box-shadow: -4px 0 12px rgba(0,0,0,0.1);
   border-left: 1px solid #ddd;
   border-radius: 8px 0 0 8px;
-  display: grid;
-  grid-template-rows: auto 1fr;
-  gap: 2rem;
 }
 
 .sidebar.active {
   right: 0;
 }
 
-.sidebar .logo {
-  display: grid;
-  place-items: center;
-}
-
 .sidebar .logo img {
   width: 130px;
+  display: block;
+  margin: 0 auto 2rem;
 }
 
 .sidebar nav ul {
   list-style: none;
-  display: grid;
-  gap: 1.2rem;
+}
+
+.sidebar nav ul li {
+  margin: 1.2rem 0;
+  position: relative;
 }
 
 .sidebar nav ul li a {
@@ -93,13 +90,16 @@ body {
   max-height: 0;
   opacity: 0;
   overflow: hidden;
-  transition: all 0.5s ease;
-  display: grid;
-  gap: 0.5rem;
+  transition: all 0.5s ease; /* <-- control de velocidad y suavidad */
+}
+
+.dropdown-content li a {
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
 }
 
 .dropdown-content.show {
-  max-height: 500px;
+  max-height: 500px; /* valor grande para que quepa el contenido */
   opacity: 1;
 }
 
