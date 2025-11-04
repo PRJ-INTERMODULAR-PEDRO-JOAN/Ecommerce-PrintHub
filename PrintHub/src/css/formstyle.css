@@ -130,10 +130,10 @@ body {
 ================================ */
 .form-container {
   display: flex;
-  justify-content: center;  /* Centra horizontalmente */
-  align-items: center;      /* Centra verticalmente */
-  padding: 0 20px;          /* Quita el padding superior que empuja la card hacia abajo */
-  min-height: 100vh;        /* Hace que ocupe toda la altura de la ventana */
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  min-height: 100vh;
   background: linear-gradient(135deg, #f9fafb 0%, #eef2f7 100%);
 }
 
@@ -146,7 +146,6 @@ body {
   width: 100%;
   animation: fadeInUp 0.8s ease;
 }
-
 
 .contact-section h1 {
   text-align: center;
@@ -162,6 +161,7 @@ body {
   font-size: 1rem;
 }
 
+/* Campos */
 form {
   display: flex;
   flex-direction: column;
@@ -285,7 +285,6 @@ form .btn:hover {
   background: #fff;
   padding: 40px 20px;
   border-top: 1px solid #ddd;
-  font-family: Arial, sans-serif;
   color: #333;
 }
 
@@ -357,6 +356,30 @@ form .btn:hover {
 }
 
 /* ================================
+   MENSAJES PHP (SERVIDOR)
+================================ */
+.error,
+.success {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.error {
+  background-color: #ffe5e5;
+  color: #c0392b;
+  border: 1px solid #e57373;
+}
+
+.success {
+  background-color: #e9f9e9;
+  color: #27ae60;
+  border: 1px solid #81c784;
+}
+
+/* ================================
    RESPONSIVE
 ================================ */
 @media (max-width: 768px) {
@@ -373,5 +396,11 @@ form .btn:hover {
     text-align: center;
   }
 
-  .footer-right { text-align: center; }
+  .footer-right {
+    text-align: center;
+  }
+
+  .sidebar {
+    width: 220px;
+  }
 }
