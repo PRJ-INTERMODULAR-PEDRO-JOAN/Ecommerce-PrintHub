@@ -1,5 +1,21 @@
 /* ================================
+   IMPORTACIÓN DE FUENTES
+   Justificación: 
+   - 'Inter' para el cuerpo (precisión tech).
+   - 'Chakra Petch' para los títulos. Es angular, con un aire
+     "stencil" o "industrial" que resalta mucho más. Es 100% "maker".
+   - 'Roboto Mono' para el banner (G-code).
+================================ */
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Inter:wght@400;500;600&family=Roboto+Mono:wght@700&display=swap');
+
+
+/* ================================
    RESET Y CONFIGURACIÓN GLOBAL
+   Justificación: 
+   - Fondo: Se mantiene el gradiente limpio.
+   - Tipografía: Mantenemos 'Inter' para el cuerpo. Es la base
+     limpia y legible que permite que los títulos destaquen.
+   - Color de texto: Se mantiene el gris oscuro para contraste.
 ================================ */
 * {
   margin: 0;
@@ -12,22 +28,47 @@ html {
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f4f4f4;
-  color: #333;
+  /* Fuente principal del cuerpo */
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e8eff5 100%);
+  color: #1a1a1a;
   overflow-x: hidden;
 }
 
+/* ================================
+   TIPOGRAFÍA DE TÍTULOS
+   Justificación: 
+   - Fuente: 'Chakra Petch'. ¡Aquí está el "pop"!
+   - Vibe: Es angular, moderna, y tiene un feeling "tech/industrial"
+     muy marcado, como si estuviera cortada por láser o
+     diseñada en CAD. Es perfecta para el mundo 3D/maker.
+================================ */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Chakra Petch', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase; /* Forzamos mayúsculas para más impacto */
+}
+
+
+/* ================================
+   NUEVA PALETA DE ACENTOS
+   (Sin cambios en la paleta, es genial)
+================================ */
+
 .highlight {
-  background-color: orange;
-  color: #000;
-  padding: 0 5px;
+  /* Usamos un gradiente atrevido con los dos nuevos acentos */
+  background: linear-gradient(90deg, #FF6B00, #007BFF);
+  color: black;
+  padding: 0 6px;
   border-radius: 4px;
+  font-weight: 700;
+  margin-left: 5px;
 }
 
 
 /* ================================
    BARRA LATERAL (SIDEBAR)
+   (Hereda 'Inter' correctamente)
 ================================ */
 .sidebar {
   position: fixed;
@@ -35,14 +76,14 @@ body {
   right: -260px;
   width: 260px;
   height: 100%;
-  background-color: #fefefe;
-  color: #333;
+  background: #ffffff;
+  color: #1a1a1a;
   padding: 2rem 1rem;
   transition: right 0.4s ease, box-shadow 0.4s ease;
   z-index: 1000;
-  box-shadow: -4px 0 12px rgba(0,0,0,0.1);
-  border-left: 1px solid #ddd;
-  border-radius: 8px 0 0 8px;
+  box-shadow: -6px 0 25px rgba(0, 0, 0, 0.08);
+  border-left: 3px solid #FF6B00;
+  border-radius: 16px 0 0 16px;
 }
 
 .sidebar.active {
@@ -53,6 +94,8 @@ body {
   width: 130px;
   display: block;
   margin: 0 auto 2rem;
+  /* Sombra más sutil */
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
 .sidebar nav ul {
@@ -65,19 +108,22 @@ body {
 }
 
 .sidebar nav ul li a {
-  color: #333;
+  color: #222;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 500; /* 'Inter' 500 se ve excelente aquí */
   font-size: 1.1rem;
   display: block;
   padding: 0.6rem 1rem;
-  border-radius: 8px;
-  transition: background 0.3s ease, color 0.3s ease;
+  border-radius: 10px;
+  transition: all 0.3s ease;
 }
 
 .sidebar nav ul li a:hover {
-  background: #f0f0f0;
-  color: #0044cc;
+  /* Justificación: Usamos el azul eléctrico para el hover. Crea un contraste digital y atractivo. */
+  background: linear-gradient(90deg, #007BFF, #00C6FF);
+  color: #fff;
+  transform: translateX(-4px);
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
 }
 
 
@@ -90,7 +136,7 @@ body {
   max-height: 0;
   opacity: 0;
   overflow: hidden;
-  transition: all 0.5s ease; /* <-- control de velocidad y suavidad */
+  transition: all 0.5s ease;
 }
 
 .dropdown-content li a {
@@ -99,58 +145,60 @@ body {
 }
 
 .dropdown-content.show {
-  max-height: 500px; /* valor grande para que quepa el contenido */
+  max-height: 500px;
   opacity: 1;
 }
 
 
 /* ================================
    BOTÓN HAMBURGUESA
+   (Sin cambios)
 ================================ */
 .menu-toggle {
   position: fixed;
-  top: 20px;
-  right: 20px;
-  background: #666;
+  top: 10px;
+  right: 10px;
+  background: linear-gradient(90deg, #FF6B00, #ff8c42);
   color: #fff;
   border: none;
   padding: 12px 16px;
   font-size: 20px;
   cursor: pointer;
-  border-radius: 8px;
+  border-radius: 12px;
   z-index: 1100;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 15px rgba(255, 107, 0, 0.4);
+  transition: all 0.3s ease;
 }
 
 .menu-toggle:hover {
-  background: #555;
-  transform: scale(1.05);
+  transform: scale(1.1) rotate(3deg);
+  box-shadow: 0 6px 20px rgba(255, 107, 0, 0.5);
 }
 
 
 /* ================================
    BANNER
+   Justificación:
+   - Tipografía: ¡Perfecta! Mantenemos 'Roboto Mono'. Es la referencia ideal
+     al G-code y al aspecto técnico de la impresión 3D.
 ================================ */
 .banner {
-  background-color: #ff6f61;
+  background: linear-gradient(90deg, #007BFF, #0056b3);
   color: #fff;
-  overflow: hidden;
-  white-space: nowrap;
-  width: 100%;
   height: 40px;
   display: grid;
   place-items: center;
   font-weight: bold;
-  font-family: Arial, sans-serif;
-  position: relative;
+  font-family: 'Roboto Mono', 'Courier New', monospace;
+  overflow: hidden;
+  white-space: nowrap;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
 
 .banner-text {
   display: inline-block;
   padding-left: 100%;
-  animation: scrollText 20s linear infinite;
-  text-shadow: 1px 1px 2px black;
+  animation: scrollText 18s linear infinite;
 }
 
 @keyframes scrollText {
@@ -161,21 +209,33 @@ body {
 
 /* ================================
    HERO SECTION
+   Justificación:
+   - 'Chakra Petch' (heredado en h1) da un impacto "tech" inmediato.
+   - 'Inter' (heredado en p) mantiene la claridad.
 ================================ */
 .hero {
   height: 100vh;
   display: grid;
   place-items: center;
   text-align: center;
-  color: white;
+  color: #fff;
   position: relative;
+  background: linear-gradient(135deg, #FF6B00, #ff3c83, #007BFF);
+  background-size: 200% 200%; /* Para animar el fondo */
+  animation: gradientWave 10s ease infinite;
+}
+
+@keyframes gradientWave {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0,0,0,0.25);
 }
 
 .hero-content {
@@ -184,14 +244,19 @@ body {
   display: grid;
   gap: 1rem;
   justify-items: center;
+  animation: fadeInUp 1s ease-out;
 }
 
 .hero h1 {
   font-size: 3rem;
+  letter-spacing: 1px; /* Un poco de aire para la mayúscula */
 }
 
 .hero p {
   font-size: 1.2rem;
+  color: #e0f2ff; /* Tono de párrafo más frío, a juego con el fondo */
+  font-weight: 400; /* 'Inter' 400 es perfecto para párrafos */
+  text-transform: none; /* Resetear el uppercase de los títulos */
 }
 
 .arrow {
@@ -210,6 +275,7 @@ body {
 
 /* ================================
    HERO CREEPER XXL
+   (Hereda las fuentes nuevas)
 ================================ */
 .creeper-hero {
   height: 100vh;
@@ -217,8 +283,9 @@ body {
   place-items: start center;
   text-align: center;
   color: white;
-  padding-top: 60px;
+  padding-top: 40px;
   animation: fadeInUp 0.8s ease-out;
+  background: linear-gradient(135deg, #1f1f1f, #333);
 }
 
 .creeper-content {
@@ -235,57 +302,64 @@ body {
 
 .btn-creeper {
   background: transparent;
-  color: #aefb6a;
-  border: 2px solid #aefb6a;
+  color: #FF6B00; /* Naranja primario */
+  border: 2px solid #FF6B00;
   border-radius: 30px;
   padding: 10px 25px;
-  font-weight: 600;
+  font-weight: 600; /* 'Inter' 600 da un botón nítido */
   cursor: pointer;
   transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif; /* Aseguramos la fuente del body */
+  text-transform: none; /* Resetear el uppercase */
 }
 
 .btn-creeper:hover {
-  background-color: #aefb6a;
-  color: #000;
+  background-color: #FF6B00;
+  color: #fff; /* Blanco sobre naranja */
   transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
 }
 
 
 /* ================================
    SOBRE NOSOTROS (ABOUT)
+   (Hereda 'Chakra Petch' para h2 e 'Inter' para p)
 ================================ */
 .about-section {
   padding: 80px 20px;
   display: grid;
   place-items: center;
   text-align: center;
-  background: linear-gradient(135deg, #f9fafb 0%, #eef2f7 100%);
+  background: #ffffff;
   border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   animation: fadeInUp 0.8s ease forwards;
 }
 
 .about-section h2 {
   font-size: 2.2rem;
   margin-bottom: 20px;
+  color: #007BFF; /* Acento azul */
 }
 
 .about-section p {
   max-width: 700px;
   font-size: 1.1rem;
   line-height: 1.7;
-  color: #4b5563;
+  color: #333; /* Texto más oscuro para legibilidad */
+  text-transform: none; /* Resetear el uppercase */
 }
 
 
 /* ================================
    PRODUCTOS DESTACADOS
+   (Hereda 'Chakra Petch' para h1 e 'Inter' para el resto)
 ================================ */
 .featured-products {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
-  padding: 40px 20px;
+  gap: 24px;
+  padding: 60px 20px;
 }
 
 .featured-products h1 {
@@ -297,10 +371,16 @@ body {
   display: grid;
   gap: 10px;
   justify-items: center;
-  background-color: rgb(255, 147, 74);
+  background:#FF6B00;
   padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-8px); /* Más 'pop' */
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
 }
 
 .product-card img {
@@ -309,27 +389,36 @@ body {
 }
 
 .product-card .btn {
-  background-color: #777;
+  background: linear-gradient(90deg, #007BFF, #1f8bff);
   color: white;
   border: none;
   padding: 10px 15px;
-  border-radius: 5px;
+  border-radius: 25px;
   cursor: pointer;
+  font-weight: 600; /* 'Inter' 600 */
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif; /* Aseguramos la fuente del body */
+  text-transform: none; /* Resetear el uppercase */
 }
 
 .product-card .btn:hover {
-  background-color: #555;
+  transform: scale(1.08);
+  box-shadow: 0 4px 15px rgba(255, 107, 0, 0.4);
 }
 
 
 /* ================================
    FOOTER
+   Justificación:
+   - Ajustamos la fuente a 'Inter' para el texto.
+   - 'Chakra Petch' (heredado en h3) da un anclaje visual "tech".
 ================================ */
 .footer {
-  background: #fff;
+  background: #e8eff5;
   padding: 40px 20px;
-  border-top: 1px solid #ddd;
-  font-family: Arial, sans-serif;
+  border-top: 1px solid #d0dbe8; /* Borde sutil a juego */
+  /* CAMBIO DE FUENTE */
+  font-family: 'Inter', sans-serif;
   color: #333;
 }
 
@@ -378,7 +467,7 @@ body {
 .footer-right h3 {
   font-size: 18px;
   margin-bottom: 10px;
-  color: #f57c00;
+  color: #FF6B00; /* Naranja primario */
 }
 
 .footer-right ul {
@@ -397,25 +486,45 @@ body {
 }
 
 .footer-right a:hover {
-  color: #f57c00;
+  color: #007BFF; /* Acento azul en el hover */
 }
 
+/* ================================
+   LOGO (TEXTO)
+   Justificación:
+   - Aplicamos 'Chakra Petch' al logo de texto para un
+     branding "maker" fuerte y consistente.
+================================ */
 .logo {
   margin-top: 10px;
   font-size: 2.5rem;
   color: #000000;
+  /* CAMBIO DE FUENTE */
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase; /* Consistente con los títulos */
 }
 
+
 /* ================================
-   RESPONSIVE
+   ANIMACIONES GLOBALES
+================================ */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ================================
+   RESPONSIVE (Sin cambios)
 ================================ */
 @media (max-width: 480px) {
   .hero h1 { font-size: 2rem; }
   .hero p { font-size: 1rem; }
   .featured-products {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* dos columnas */
-    gap: 16px; /* espacio entre cards */
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
   }
 
   .product-card {
@@ -428,8 +537,8 @@ body {
 @media (max-width: 768px) {
   .featured-products {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* dos columnas */
-    gap: 16px; /* espacio entre cards */
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
   }
 
   .product-card {
