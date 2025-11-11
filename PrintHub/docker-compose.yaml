@@ -2,7 +2,19 @@ version: '3.8'
 # Services
 services:
 
-  # Nginx Service
+  jsonserver:                    # <<— AÇÍ, DINS DE "services:"
+      image: node:20-alpine
+      container_name: jsonserver
+      working_dir: /app
+      command: sh -c "npm i -g json-server && json-server --watch /data/products.json --host 0.0.0.0 --port 3000"
+      volumes:
+        - ./data:/data
+      ports:
+        - "3000:3000"
+      restart: unless-stopped
+      networks:
+        - default
+
   nginx:
     image: nginx:1.23
     container_name: webserver-projecte
@@ -13,8 +25,9 @@ services:
       - ./.docker/nginx/conf.d:/etc/nginx/conf.d
     depends_on:
       - php
+    networks:      # <--- AFEGEIX AIXÒ
+      - default    # <--- AFEGEIX AIXÒ
 
-  # PHP Service
   php:
     build: ./.docker/php/
     working_dir: /var/www/php
@@ -26,6 +39,9 @@ services:
       - .:/var/www/php
       - ./.docker/php/conf.d/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
       - ./.docker/php/conf.d/error_reporting.ini:/usr/local/etc/php/conf.d/error_reporting.ini
+    networks:      # <--- AFEGEIX AIXÒ
+      - default    # <--- AFEGEIX AIXÒ
+
   db:
     image: mysql:8.0
     ports:
@@ -54,4 +70,6 @@ volumes:
   persistent:
 
     null
+
+ 
 

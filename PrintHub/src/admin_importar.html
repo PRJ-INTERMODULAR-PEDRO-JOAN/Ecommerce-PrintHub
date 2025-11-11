@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Importar Productos - PrintHub</title>
+    <link rel="stylesheet" href="./css/importarStyle.css" />
+    <style></style>
+  </head>
+  <body>
+    <div class="import-container">
+      <h2>Importar Catálogo de Productos</h2>
+      <p>Sube un archivo .xlsx, .xls o .csv para cargar los productos.</p>
+
+      <form
+        action="php/importar_productos.php"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <label for="excelFile">Selecciona el archivo:</label>
+        <input
+          type="file"
+          name="excelFile"
+          id="excelFile"
+          accept=".xlsx, .xls, .csv"
+          required
+        />
+        <br />
+        <button type="submit">Importar Productos</button>
+      </form>
+    </div>
+  </body>
+</html>
