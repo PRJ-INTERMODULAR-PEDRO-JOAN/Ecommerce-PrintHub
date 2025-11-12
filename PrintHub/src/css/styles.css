@@ -1,22 +1,5 @@
-/* ================================
-   IMPORTACIÓN DE FUENTES
-   Justificación: 
-   - 'Inter' para el cuerpo (precisión tech).
-   - 'Chakra Petch' para los títulos. Es angular, con un aire
-     "stencil" o "industrial" que resalta mucho más. Es 100% "maker".
-   - 'Roboto Mono' para el banner (G-code).
-================================ */
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Inter:wght@400;500;600&family=Roboto+Mono:wght@700&display=swap');
 
-
-/* ================================
-   RESET Y CONFIGURACIÓN GLOBAL
-   Justificación: 
-   - Fondo: Se mantiene el gradiente limpio.
-   - Tipografía: Mantenemos 'Inter' para el cuerpo. Es la base
-     limpia y legible que permite que los títulos destaquen.
-   - Color de texto: Se mantiene el gris oscuro para contraste.
-================================ */
 * {
   margin: 0;
   padding: 0;
@@ -28,35 +11,19 @@ html {
 }
 
 body {
-  /* Fuente principal del cuerpo */
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   background: linear-gradient(135deg, #f5f7fa 0%, #e8eff5 100%);
   color: #1a1a1a;
   overflow-x: hidden;
 }
 
-/* ================================
-   TIPOGRAFÍA DE TÍTULOS
-   Justificación: 
-   - Fuente: 'Chakra Petch'. ¡Aquí está el "pop"!
-   - Vibe: Es angular, moderna, y tiene un feeling "tech/industrial"
-     muy marcado, como si estuviera cortada por láser o
-     diseñada en CAD. Es perfecta para el mundo 3D/maker.
-================================ */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Chakra Petch', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-weight: 700;
-  text-transform: uppercase; /* Forzamos mayúsculas para más impacto */
+  text-transform: uppercase;
 }
 
-
-/* ================================
-   NUEVA PALETA DE ACENTOS
-   (Sin cambios en la paleta, es genial)
-================================ */
-
 .highlight {
-  /* Usamos un gradiente atrevido con los dos nuevos acentos */
   background: linear-gradient(90deg, #FF6B00, #007BFF);
   color: black;
   padding: 0 6px;
@@ -65,11 +32,6 @@ h1, h2, h3, h4, h5, h6 {
   margin-left: 5px;
 }
 
-
-/* ================================
-   BARRA LATERAL (SIDEBAR)
-   (Hereda 'Inter' correctamente)
-================================ */
 .sidebar {
   position: fixed;
   top: 0;
@@ -94,7 +56,6 @@ h1, h2, h3, h4, h5, h6 {
   width: 130px;
   display: block;
   margin: 0 auto 2rem;
-  /* Sombra más sutil */
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
@@ -110,7 +71,7 @@ h1, h2, h3, h4, h5, h6 {
 .sidebar nav ul li a {
   color: #222;
   text-decoration: none;
-  font-weight: 500; /* 'Inter' 500 se ve excelente aquí */
+  font-weight: 500;
   font-size: 1.1rem;
   display: block;
   padding: 0.6rem 1rem;
@@ -119,17 +80,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .sidebar nav ul li a:hover {
-  /* Justificación: Usamos el azul eléctrico para el hover. Crea un contraste digital y atractivo. */
   background: linear-gradient(90deg, #007BFF, #00C6FF);
   color: #fff;
   transform: translateX(-4px);
   box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
 }
 
-
-/* ================================
-   DROPDOWN MENÚ
-================================ */
 .dropdown-content {
   list-style: none;
   padding-left: 15px;
@@ -149,11 +105,6 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 1;
 }
 
-
-/* ================================
-   BOTÓN HAMBURGUESA
-   (Sin cambios)
-================================ */
 .menu-toggle {
   position: fixed;
   top: 10px;
@@ -175,13 +126,6 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 6px 20px rgba(255, 107, 0, 0.5);
 }
 
-
-/* ================================
-   BANNER
-   Justificación:
-   - Tipografía: ¡Perfecta! Mantenemos 'Roboto Mono'. Es la referencia ideal
-     al G-code y al aspecto técnico de la impresión 3D.
-================================ */
 .banner {
   background: linear-gradient(90deg, #007BFF, #0056b3);
   color: #fff;
@@ -206,13 +150,6 @@ h1, h2, h3, h4, h5, h6 {
   100% { transform: translateX(-100%); }
 }
 
-
-/* ================================
-   HERO SECTION
-   Justificación:
-   - 'Chakra Petch' (heredado en h1) da un impacto "tech" inmediato.
-   - 'Inter' (heredado en p) mantiene la claridad.
-================================ */
 .hero {
   height: 100vh;
   display: grid;
@@ -241,14 +178,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero h1 {
   font-size: 3rem;
-  letter-spacing: 1px; /* Un poco de aire para la mayúscula */
+  letter-spacing: 1px;
 }
 
 .hero p {
   font-size: 1.2rem;
-  color: #e0f2ff; /* Tono de párrafo más frío, a juego con el fondo */
-  font-weight: 400; /* 'Inter' 400 es perfecto para párrafos */
-  text-transform: none; /* Resetear el uppercase de los títulos */
+  color: #e0f2ff;
+  font-weight: 400;
+  text-transform: none;
 }
 
 .arrow {
@@ -264,11 +201,6 @@ h1, h2, h3, h4, h5, h6 {
   60% { transform: translateY(5px); }
 }
 
-
-/* ================================
-   HERO CREEPER XXL
-   (Hereda las fuentes nuevas)
-================================ */
 .creeper-hero {
   height: 100vh;
   display: grid;
@@ -294,29 +226,24 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-creeper {
   background: transparent;
-  color: #FF6B00; /* Naranja primario */
+  color: #FF6B00;
   border: 2px solid #FF6B00;
   border-radius: 30px;
   padding: 10px 25px;
-  font-weight: 600; /* 'Inter' 600 da un botón nítido */
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  font-family: 'Inter', sans-serif; /* Aseguramos la fuente del body */
-  text-transform: none; /* Resetear el uppercase */
+  font-family: 'Inter', sans-serif;
+  text-transform: none;
 }
 
 .btn-creeper:hover {
   background-color: #FF6B00;
-  color: #fff; /* Blanco sobre naranja */
+  color: #fff;
   transform: scale(1.05);
   box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
 }
 
-
-/* ================================
-   SOBRE NOSOTROS (ABOUT)
-   (Hereda 'Chakra Petch' para h2 e 'Inter' para p)
-================================ */
 .about-section {
   padding: 80px 20px;
   display: grid;
@@ -331,22 +258,17 @@ h1, h2, h3, h4, h5, h6 {
 .about-section h2 {
   font-size: 2.2rem;
   margin-bottom: 20px;
-  color: #007BFF; /* Acento azul */
+  color: #007BFF;
 }
 
 .about-section p {
   max-width: 700px;
   font-size: 1.1rem;
   line-height: 1.7;
-  color: #333; /* Texto más oscuro para legibilidad */
-  text-transform: none; /* Resetear el uppercase */
+  color: #333;
+  text-transform: none;
 }
 
-
-/* ================================
-   PRODUCTOS DESTACADOS
-   (Hereda 'Chakra Petch' para h1 e 'Inter' para el resto)
-================================ */
 .featured-products {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -371,7 +293,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .product-card:hover {
-  transform: translateY(-8px); /* Más 'pop' */
+  transform: translateY(-8px);
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
 }
 
@@ -387,10 +309,10 @@ h1, h2, h3, h4, h5, h6 {
   padding: 10px 15px;
   border-radius: 25px;
   cursor: pointer;
-  font-weight: 600; /* 'Inter' 600 */
+  font-weight: 600;
   transition: all 0.3s ease;
-  font-family: 'Inter', sans-serif; /* Aseguramos la fuente del body */
-  text-transform: none; /* Resetear el uppercase */
+  font-family: 'Inter', sans-serif;
+  text-transform: none;
 }
 
 .product-card .btn:hover {
@@ -398,18 +320,10 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 4px 15px rgba(255, 107, 0, 0.4);
 }
 
-
-/* ================================
-   FOOTER
-   Justificación:
-   - Ajustamos la fuente a 'Inter' para el texto.
-   - 'Chakra Petch' (heredado en h3) da un anclaje visual "tech".
-================================ */
 .footer {
   background: #e8eff5;
   padding: 40px 20px;
-  border-top: 1px solid #d0dbe8; /* Borde sutil a juego */
-  /* CAMBIO DE FUENTE */
+  border-top: 1px solid #d0dbe8;
   font-family: 'Inter', sans-serif;
   color: #333;
 }
@@ -459,7 +373,7 @@ h1, h2, h3, h4, h5, h6 {
 .footer-right h3 {
   font-size: 18px;
   margin-bottom: 10px;
-  color: #FF6B00; /* Naranja primario */
+  color: #FF6B00;
 }
 
 .footer-right ul {
@@ -478,38 +392,23 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-right a:hover {
-  color: #007BFF; /* Acento azul en el hover */
+  color: #007BFF;
 }
 
-/* ================================
-   LOGO (TEXTO)
-   Justificación:
-   - Aplicamos 'Chakra Petch' al logo de texto para un
-     branding "maker" fuerte y consistente.
-================================ */
 .logo {
   margin-top: 10px;
   font-size: 2.5rem;
   color: #000000;
-  /* CAMBIO DE FUENTE */
   font-family: 'Chakra Petch', sans-serif;
   font-weight: 700;
-  text-transform: uppercase; /* Consistente con los títulos */
+  text-transform: uppercase;
 }
 
-
-/* ================================
-   ANIMACIONES GLOBALES
-================================ */
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-
-/* ================================
-   RESPONSIVE (Sin cambios)
-================================ */
 @media (max-width: 480px) {
   .hero h1 { font-size: 2rem; }
   .hero p { font-size: 1rem; }
