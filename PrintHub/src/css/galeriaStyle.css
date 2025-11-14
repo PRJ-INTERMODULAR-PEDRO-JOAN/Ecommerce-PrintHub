@@ -17,27 +17,34 @@ body {
   background: #fff;
   color: #1a1a1a;
   overflow-x: hidden;
+  background: linear-gradient(90deg, #ffb981 0%, #83c5ff 100%);
+
 }
 
 /* ================================================= */
 /* === BANNER ==================================================== */
 .banner {
-  background: linear-gradient(90deg, #007BFF, #0056b3);
+  background: linear-gradient(90deg, #FF6B00, #ff7b1d);
   color: #fff;
   height: 40px;
   display: grid;
   place-items: center;
   font-weight: bold;
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Roboto Mono', 'Courier New', monospace;
   overflow: hidden;
   white-space: nowrap;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
 
-.banner-text {
+.banner-texto {
   display: inline-block;
   padding-left: 100%;
-  animation: scrollText 18s linear infinite;
+  animation: scrollText 40s linear infinite;
+  color: #000;
+}
+
+.enlace-banner {
+  text-decoration: none;
 }
 
 @keyframes scrollText {
@@ -127,6 +134,7 @@ header img {
   display: block;
   margin: 0 auto 1.5rem;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  border-radius: 12px;
 }
 
 .iconos-utilidad {
@@ -223,6 +231,7 @@ header img {
   width: 90%;
   margin: 20px auto;
   overflow: hidden;
+  margin-top: 50px;
 }
 
 /* ================================================= */
@@ -275,75 +284,91 @@ header img {
 
 /* ================================================= */
 /* === FOOTER =================================================== */
-.footer {
-  clear: both;
-  background: #fff;
-  border-top: 2px solid #ddd;
-  padding: 20px;
-  border-radius: 12px;
-  margin: 10px;
+.pie-pagina {
+  background: #e8eff5;
+  padding: 40px 20px;
+  border-top: 1px solid #d0dbe8;
+  font-family: 'Inter', sans-serif;
+  color: #333;
 }
 
-.footer-left, .footer-center {
-  float: left;
-  width: 33.333%;
-  padding: 0 15px;
+.pie-pagina-contenedor {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+  align-items: center;
   text-align: center;
 }
 
-.footer-right {
-  float: right;
-  width: 33.333%;
-  padding: 0 15px;
-  text-align: left;
+.pie-pagina-izquierda img {
+  width: 140px;
+  margin-bottom: 15px;
 }
 
-.footer-left .logo { 
-  font-size: 2.5rem; 
-  font-family: 'Chakra Petch', sans-serif;
-  font-weight: 700;
+.iconos-sociales img,
+.iconos-youtube img {
+  margin: 0 8px;
+  transition: transform 0.3s;
 }
 
-.footer-left img { 
-  width: 120px; 
-  border-radius: 12px; 
-}
-
-.footer a {
-  color: #1a1a1a; 
-  text-decoration: none;  
-}
-.footer a:hover {
-  color: #FF6B00;  
-}
-
-.social-icons img,
-.youtube-icons img {
+.iconos-sociales img {
   width: 28px;
   height: 28px;
-  margin: 0 6px;
-  transition: transform 0.3s ease;
 }
 
-.social-icons img:hover,
-.youtube-icons img:hover {
+.iconos-youtube img {
+  width: 39px;
+  height: 28px;
+}
+
+.iconos-sociales img:hover,
+.iconos-youtube img:hover {
   transform: scale(1.2);
 }
 
-.footer-center img {
+.pie-pagina-centro img {
   max-width: 320px;
+  border-radius: 12px;
 }
 
-.footer-right h3 { 
-  margin-bottom: 10px; 
-  color: #FF6B00; 
+.pie-pagina-derecha {
+  text-align: left;
 }
 
-.footer-right ul { list-style: none; }
-.footer-right li { 
-  margin-bottom: 8px; 
-  font-size: 14px; 
+.pie-pagina-derecha h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #FF6B00;
 }
+
+.pie-pagina-derecha ul {
+  list-style: none;
+  padding: 0;
+}
+
+.pie-pagina-derecha li {
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.pie-pagina-derecha a {
+  color: #333;
+  text-decoration: none;
+}
+
+.pie-pagina-derecha a:hover {
+  color: #007BFF;
+}
+
+.logo {
+  margin-top: 10px;
+  font-size: 2.5rem;
+  color: #000000;
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
 
 /* ================================================= */
 /* === CARRUSEL ================================================= */
@@ -354,6 +379,8 @@ header img {
   clear: both;
   overflow: hidden;
   font-family: 'Segoe UI', Tahoma, sans-serif;
+  border-radius: 150px;
+  margin-bottom: 50px;
 }
 
 .carousel-section h2 {
