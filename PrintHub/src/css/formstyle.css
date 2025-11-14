@@ -254,7 +254,47 @@ form textarea {
 }
 
 .checkbox-container a {
+  color: #007BFF;.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #FF6B00, #007BFF);
+}
+
+.contact-section {
+  background: #fff;
+  border-radius: 20px;
+  padding: 40px 50px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+  width: 100%;
+  animation: fadeInUp 0.8s ease;
+}
+
+.contact-section h1 {
+  text-align: center;
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 2.4rem;
+  margin-bottom: 10px;
   color: #007BFF;
+  text-transform: uppercase;
+}
+
+.contact-section .subtitle {
+  text-align: center;
+  color: #555;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+/* ================================ CAMPOS ================================ */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
   text-decoration: none;
 }
 
@@ -300,14 +340,15 @@ form .btn:hover {
 }
 
 /* ================================ FOOTER ================================ */
-.footer {
+.pie-pagina {
   background: #e8eff5;
   padding: 40px 20px;
   border-top: 1px solid #d0dbe8;
+  font-family: 'Inter', sans-serif;
   color: #333;
 }
 
-.footer-container {
+.pie-pagina-contenedor {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 40px;
@@ -315,63 +356,72 @@ form .btn:hover {
   text-align: center;
 }
 
-.footer-left img {
+.pie-pagina-izquierda img {
   width: 140px;
   margin-bottom: 15px;
 }
 
-.social-icons img,
-.youtube-icons img {
+.iconos-sociales img,
+.iconos-youtube img {
   margin: 0 8px;
   transition: transform 0.3s;
 }
 
-.social-icons img {
+.iconos-sociales img {
   width: 28px;
   height: 28px;
 }
 
-.youtube-icons img {
+.iconos-youtube img {
   width: 39px;
   height: 28px;
 }
 
-.social-icons img:hover,
-.youtube-icons img:hover {
+.iconos-sociales img:hover,
+.iconos-youtube img:hover {
   transform: scale(1.2);
 }
 
-.footer-center img {
+.pie-pagina-centro img {
   max-width: 320px;
 }
 
-.footer-right {
+.pie-pagina-derecha {
   text-align: left;
 }
 
-.footer-right h3 {
+.pie-pagina-derecha h3 {
   font-size: 18px;
   margin-bottom: 10px;
   color: #FF6B00;
 }
 
-.footer-right ul {
+.pie-pagina-derecha ul {
   list-style: none;
   padding: 0;
 }
 
-.footer-right li {
+.pie-pagina-derecha li {
   margin-bottom: 8px;
   font-size: 14px;
 }
 
-.footer-right a {
+.pie-pagina-derecha a {
   color: #333;
   text-decoration: none;
 }
 
-.footer-right a:hover {
+.pie-pagina-derecha a:hover {
   color: #007BFF;
+}
+
+.logo {
+  margin-top: 10px;
+  font-size: 2.5rem;
+  color: #000000;
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 /* ================================ ANIMACIONES ================================ */
