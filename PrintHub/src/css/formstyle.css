@@ -1,6 +1,7 @@
-/* ================================
-   RESET Y CONFIGURACIÓN GLOBAL
-================================ */
+/* ================================ IMPORTACIÓN DE FUENTES ================================ */
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Inter:wght@400;500;600&family=Roboto+Mono:wght@700&display=swap');
+
+/* ================================ RESET Y CONFIGURACIÓN GLOBAL ================================ */
 * {
   margin: 0;
   padding: 0;
@@ -11,78 +12,115 @@ html {
   scroll-behavior: smooth;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Chakra Petch', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f4f4f4;
-  color: #333;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: linear-gradient(135deg, #ffb981 0%, #83c5ff 100%);
+  color: #1a1a1a;
   overflow-x: hidden;
 }
 
-.highlight {
-  background-color: orange;
-  color: #000;
-  padding: 0 5px;
+.resaltado {
+  background: linear-gradient(90deg, #FF6B00, #007BFF);
+  color: black;
+  padding: 0 6px;
   border-radius: 4px;
+  font-weight: 700;
+  margin-left: 5px;
 }
 
-/* ================================
-   BARRA LATERAL (SIDEBAR)
-================================ */
-.sidebar {
+.barra-lateral {
   position: fixed;
   top: 0;
   right: -260px;
   width: 260px;
   height: 100%;
-  background-color: #fefefe;
-  color: #333;
+  background: #ffffff;
+  color: #1a1a1a;
   padding: 2rem 1rem;
   transition: right 0.4s ease, box-shadow 0.4s ease;
   z-index: 1000;
-  box-shadow: -4px 0 12px rgba(0,0,0,0.1);
-  border-left: 1px solid #ddd;
-  border-radius: 8px 0 0 8px;
+  box-shadow: -6px 0 25px rgba(0, 0, 0, 0.08);
+  border-left: 3px solid #FF6B00;
+  border-radius: 16px 0 0 16px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: #FF6B00 #f0f0f0;
 }
 
-.sidebar.active {
+.barra-lateral::-webkit-scrollbar {
+  width: 8px;
+}
+
+.barra-lateral::-webkit-scrollbar-thumb {
+  background-color: #FF6B00;
+  border-radius: 10px;
+}
+
+.barra-lateral::-webkit-scrollbar-track {
+  background-color: #f0f0f0;
+}
+
+.barra-lateral.activa {
   right: 0;
 }
 
-.sidebar .logo img {
+.barra-lateral .logo img {
   width: 130px;
   display: block;
-  margin: 0 auto 2rem;
+  margin: 0 auto 1.5rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
-.sidebar nav ul {
+.iconos-utilidad {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.barra-lateral nav ul {
   list-style: none;
 }
 
-.sidebar nav ul li {
+.barra-lateral nav ul li {
   margin: 1.2rem 0;
   position: relative;
 }
 
-.sidebar nav ul li a {
-  color: #333;
+.barra-lateral nav ul li a,
+.iconos-utilidad li a {
+  color: #222;
   text-decoration: none;
   font-weight: 500;
   font-size: 1.1rem;
   display: block;
   padding: 0.6rem 1rem;
-  border-radius: 8px;
-  transition: background 0.3s ease, color 0.3s ease;
+  border-radius: 10px;
+  transition: all 0.3s ease;
 }
 
-.sidebar nav ul li a:hover {
-  background: #f0f0f0;
-  color: #0044cc;
+.iconos-utilidad li a {
+  font-size: 1.3rem;
+  padding: 0.5rem 0.8rem;
 }
 
-/* ================================
-   DROPDOWN MENÚ
-================================ */
-.dropdown-content {
+.barra-lateral nav ul li a:hover,
+.iconos-utilidad li a:hover {
+  background: linear-gradient(90deg, #007BFF, #00C6FF);
+  color: #fff;
+  transform: translateX(-4px);
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+.contenido-desplegable {
   list-style: none;
   padding-left: 15px;
   max-height: 0;
@@ -91,57 +129,52 @@ body {
   transition: all 0.5s ease;
 }
 
-.dropdown-content li a {
+.contenido-desplegable li a {
   padding: 0.5rem 1rem;
   font-size: 0.95rem;
 }
 
-.dropdown-content.show {
+.contenido-desplegable.mostrar {
   max-height: 500px;
   opacity: 1;
 }
 
-/* ================================
-   BOTÓN HAMBURGUESA
-================================ */
-.menu-toggle {
+.alternar-menu {
   position: fixed;
-  top: 20px;
-  right: 20px;
-  background: #666;
+  top: 10px;
+  right: 10px;
+  background: linear-gradient(90deg, #FF6B00, #ff8c42);
   color: #fff;
   border: none;
   padding: 12px 16px;
   font-size: 20px;
   cursor: pointer;
-  border-radius: 8px;
+  border-radius: 12px;
   z-index: 1100;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 15px rgba(255, 107, 0, 0.4);
+  transition: all 0.3s ease;
 }
 
-.menu-toggle:hover {
-  background: #555;
-  transform: scale(1.05);
+.alternar-menu:hover {
+  transform: scale(1.1) rotate(3deg);
+  box-shadow: 0 6px 20px rgba(255, 107, 0, 0.5);
 }
 
-/* ================================
-   FORMULARIO DE CONTACTO
-================================ */
+/* ================================ FORMULARIO DE CONTACTO ================================ */
 .form-container {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0 20px;
   min-height: 100vh;
-  background: linear-gradient(135deg, #f9fafb 0%, #eef2f7 100%);
+  background: linear-gradient(135deg, #FF6B00, #007BFF);
 }
 
 .contact-section {
   background: #fff;
   border-radius: 20px;
   padding: 40px 50px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
   max-width: 700px;
   width: 100%;
   animation: fadeInUp 0.8s ease;
@@ -149,9 +182,11 @@ body {
 
 .contact-section h1 {
   text-align: center;
+  font-family: 'Chakra Petch', sans-serif;
   font-size: 2.4rem;
   margin-bottom: 10px;
-  color: #2c3e50;
+  color: #007BFF;
+  text-transform: uppercase;
 }
 
 .contact-section .subtitle {
@@ -161,7 +196,7 @@ body {
   font-size: 1rem;
 }
 
-/* Campos */
+/* ================================ CAMPOS ================================ */
 form {
   display: flex;
   flex-direction: column;
@@ -171,7 +206,7 @@ form label {
   font-weight: 600;
   margin-top: 1rem;
   margin-bottom: 0.4rem;
-  color: #444;
+  color: #333;
 }
 
 form input[type="text"],
@@ -179,7 +214,7 @@ form input[type="email"],
 form textarea {
   width: 100%;
   padding: 0.8rem;
-  border: 1.5px solid #ddd;
+  border: 2px solid #ddd;
   border-radius: 8px;
   font-size: 1rem;
   transition: all 0.3s ease;
@@ -188,9 +223,9 @@ form textarea {
 
 form input:focus,
 form textarea:focus {
-  border-color: #0044cc;
+  border-color: #007BFF;
   outline: none;
-  box-shadow: 0 0 6px rgba(0,68,204,0.2);
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
 }
 
 form textarea {
@@ -198,7 +233,7 @@ form textarea {
   resize: vertical;
 }
 
-/* Checkbox */
+/* ================================ CHECKBOX ================================ */
 .checkbox-container {
   display: flex;
   align-items: flex-start;
@@ -219,7 +254,7 @@ form textarea {
 }
 
 .checkbox-container a {
-  color: #0044cc;
+  color: #007BFF;
   text-decoration: none;
 }
 
@@ -227,27 +262,27 @@ form textarea {
   text-decoration: underline;
 }
 
-/* Botón enviar */
+/* ================================ BOTÓN ENVIAR ================================ */
 form .btn {
   margin-top: 2rem;
-  background-color: #777;
+  background: linear-gradient(90deg, #FF6B00, #ff8c42);
   color: white;
   border: none;
   padding: 0.9rem 1.5rem;
   font-size: 1.1rem;
   font-weight: 600;
-  border-radius: 8px;
+  border-radius: 30px;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 107, 0, 0.3);
 }
 
 form .btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
-  background-color: #555;
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(255, 107, 0, 0.5);
 }
 
-/* Mensajes de validación */
+/* ================================ MENSAJES ================================ */
 #formMessage {
   margin-top: 1.5rem;
   font-weight: bold;
@@ -264,27 +299,11 @@ form .btn:hover {
   color: #27ae60;
 }
 
-/* ================================
-   ANIMACIONES
-================================ */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ================================
-   FOOTER
-================================ */
+/* ================================ FOOTER ================================ */
 .footer {
-  background: #fff;
+  background: #e8eff5;
   padding: 40px 20px;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #d0dbe8;
   color: #333;
 }
 
@@ -333,7 +352,7 @@ form .btn:hover {
 .footer-right h3 {
   font-size: 18px;
   margin-bottom: 10px;
-  color: #f57c00;
+  color: #FF6B00;
 }
 
 .footer-right ul {
@@ -352,55 +371,34 @@ form .btn:hover {
 }
 
 .footer-right a:hover {
-  color: #f57c00;
+  color: #007BFF;
 }
 
-/* ================================
-   MENSAJES PHP (SERVIDOR)
-================================ */
-.error,
-.success {
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border-radius: 8px;
-  text-align: center;
-  font-weight: bold;
+/* ================================ ANIMACIONES ================================ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.error {
-  background-color: #ffe5e5;
-  color: #c0392b;
-  border: 1px solid #e57373;
-}
-
-.success {
-  background-color: #e9f9e9;
-  color: #27ae60;
-  border: 1px solid #81c784;
-}
-
-/* ================================
-   RESPONSIVE
-================================ */
+/* ================================ RESPONSIVE ================================ */
 @media (max-width: 768px) {
   .form-container {
     padding: 60px 20px;
   }
-
   .contact-section {
     padding: 30px 20px;
   }
-
   .footer-container {
     grid-template-columns: 1fr;
     text-align: center;
   }
-
   .footer-right {
     text-align: center;
-  }
-
-  .sidebar {
-    width: 220px;
   }
 }

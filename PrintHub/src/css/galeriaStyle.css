@@ -7,6 +7,12 @@
   font-family: 'Inter', sans-serif;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Chakra Petch', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
 body {
   background: #fff;
   color: #1a1a1a;
@@ -57,7 +63,6 @@ header h1 {
   transform: translateX(-50%);
   font-size: 18px;
   font-weight: 700;
-  font-family: 'Chakra Petch', sans-serif;
   margin-top: 25px;
 }
 
@@ -67,6 +72,17 @@ header img {
   height: 80px;
   margin-left: 20px;
   border-radius: 12px;
+}
+
+/* ================================================= */
+/* === BARRA LATERAL ============================================ */
+.res {
+  background: linear-gradient(90deg, #FF6B00, #007BFF);
+  color: black;
+  padding: 0 6px;
+  border-radius: 4px;
+  font-weight: 700;
+  margin-left: 5px;
 }
 
 .barra-lateral {
@@ -189,6 +205,12 @@ header img {
   box-shadow: 0 4px 15px rgba(255, 107, 0, 0.4);
   transition: all 0.3s ease;
 }
+
+.alternar-menu:hover {
+  transform: scale(1.1) rotate(3deg);
+  box-shadow: 0 6px 20px rgba(255, 107, 0, 0.5);
+}
+
 
 .alternar-menu:hover {
   transform: scale(1.1) rotate(3deg);
@@ -431,6 +453,15 @@ header img {
 }
 
 .dots .dot.active { background: #ff7b00; }
+
+.logo {
+  margin-top: 10px;
+  font-size: 2.5rem;
+  color: #000000;
+  font-family: 'Chakra Petch', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+}
 
 /* ================================================= */
 /* === RESPONSIVE ================================================= */

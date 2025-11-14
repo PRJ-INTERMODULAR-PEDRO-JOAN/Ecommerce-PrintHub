@@ -37,45 +37,48 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </head>
 <body>
 
-  <!-- Botón menú lateral -->
-  <button class="menu-toggle">☰</button>
+  <button class="alternar-menu">☰</button>
 
-  <!-- Barra lateral -->
-  <aside class="sidebar">
-    <br><br><br>
-    <center><h1>Print<span class="highlight">Hub</span></h1></center>
-    <br>
-    <div class="logo">
-      <img src="/public/logoPrintHub.jpeg" alt="Logo de la empresa" />
+  <aside class="barra-lateral">
+    <div class="barra-lateral-cabecera">
+      <h1 class="logo-texto">Print<span class="resaltado">Hub</span></h1>
+      <div class="logo">
+        <img src="public/logoPrintHub.jpeg" alt="Logo de PrintHub" />
+      </div>
     </div>
-    <p>Menú</p>
+
+    <ul class="iconos-utilidad">
+      <li><a href="#" aria-label="Carrito">🛒</a></li>
+      <li><a href="#" aria-label="Iniciar Sesión">👤</a></li>
+    </ul>
+
+    <h3 class="etiqueta-menu">Menú</h3>
     <nav>
       <ul>
-        <li><a href="/">Inicio</a></li>
-
-        <li class="dropdown">
-          <a href="#" class="dropbtn">Maquetas Personalizadas ▾</a>
-          <ul class="dropdown-content">
+        <li><a href="../index.html">Inicio</a></li>
+        <li class="desplegable">
+          <a href="#">Maquetas Personalizadas ▾</a>
+          <ul class="contenido-desplegable">
             <li><a href="#">Videojuegos</a></li>
             <li><a href="#">Arquitectura</a></li>
             <li><a href="#">Automóviles</a></li>
           </ul>
         </li>
-
-        <li><a href="#">Diseñar Maquetas</a></li>
-        <li><a href="#">Galería de Proyectos</a></li>
-        <li><a href="contact.php" class="active">Formulario Contacto</a></li>
+        <li><a href="#como-funciona">Diseñar Maquetas</a></li>
+        <li><a href="../src/galeria.html">Galería de Proyectos</a></li>
+        <li><a href="#impresoras">Impresoras 3D</a></li>
+        <li><a href="./contact.php">Formulario Contacto</a></li>
+        <li><a href="../src/admin_importar.html">Importar Información</a></li>
       </ul>
     </nav>
   </aside>
 
-  <!-- Contenido principal -->
+
   <main class="form-container">
     <section class="contact-section">
       <h1>Contacta con <span class="highlight">PrintHub</span></h1>
       <p class="subtitle">Envíanos tu mensaje y te responderemos lo antes posible.</p>
 
-      <!-- Mensajes del servidor -->
       <?php if (!empty($errors)): ?>
         <div id="formMessage" class="error">
           <?php foreach ($errors as $err) echo "• " . htmlspecialchars($err) . "<br>"; ?>
@@ -88,7 +91,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <div id="formMessage"></div>
       <?php endif; ?>
 
-      <!-- Formulario -->
       <form id="contactForm" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <label for="name">Nombre:</label>
         <input type="text" id="name" name="name" value="<?php echo htmlspecialchars($name); ?>" placeholder="Tu nombre">
@@ -119,7 +121,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </section>
   </main>
 
-  <!-- Footer -->
   <footer class="footer">
     <div class="footer-container">
       <div class="footer-left">
@@ -159,25 +160,51 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </div>
   </footer>
 
-  <!-- Script -->
   <script>
+  // Selección de elementos
+const barraLateral = document.querySelector(".barra-lateral");
+const botonAlternar = document.querySelector(".alternar-menu");
+
+// Toggle del menú lateral (abrir/cerrar con el mismo botón)
+if (botonAlternar && barraLateral) {
+  botonAlternar.addEventListener("click", () => {
+    barraLateral.classList.toggle("activa");
+  });
+}
+
+// Dropdown del menú lateral
+const botonDesplegable = document.querySelector(".desplegable"); // Selecciona el <li>
+
+if (botonDesplegable) {
+  botonDesplegable.addEventListener("click", (e) => {
+    
+    // Solo previene la navegación si se hace clic en el enlace (<a>)
+    if (e.target.tagName === 'A') {
+        e.preventDefault(); 
+    }
+
+    // Busca el contenido desplegable DENTRO del <li>
+    const contenidoDesplegable = botonDesplegable.querySelector(".contenido-desplegable"); 
+    
+    if (contenidoDesplegable) {
+      contenidoDesplegable.classList.toggle("mostrar");
+    }
+  });
+}
+
+// Mensaje botones productos
+document.querySelectorAll('.boton').forEach(button => {
+  button.addEventListener('click', () => {
+    alert('Estàs veient més informació del producte!');
+  });
+});
+
+// --- SECCIÓN DEL CARRUSEL ELIMINADA ---
+
+  // === INICIO DE LA CORRECCIÓN JS ===
+  // Faltaba definir la variable 'form' seleccionando el formulario por su ID
   const form = document.getElementById('contactForm');
-  const formMessage = document.getElementById('formMessage');
-  const sidebar = document.querySelector(".sidebar");
-  const toggleBtn = document.querySelector(".menu-toggle");
-  const dropdownBtn = document.querySelector(".dropbtn");
-
-  // Toggle del menú lateral
-  toggleBtn.addEventListener("click", () => {
-    sidebar.classList.toggle("active");
-  });
-
-  // Toggle del dropdown
-  dropdownBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-    const dropdownContent = dropdownBtn.nextElementSibling;
-    dropdownContent.classList.toggle("show");
-  });
+  // === FIN DE LA CORRECCIÓN JS ===
 
   // Elementos del formulario
   const nameInput = form.name;
