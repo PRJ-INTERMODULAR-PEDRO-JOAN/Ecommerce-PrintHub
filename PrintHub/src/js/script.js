@@ -36,4 +36,72 @@ document.querySelectorAll('.boton').forEach(button => {
   });
 });
 
-// --- SECCIÓN DEL CARRUSEL ELIMINADA ---
+document.addEventListener("DOMContentLoaded", () => {
+  console.log("DOM cargado");
+  cargarProductos();
+  cargarImpresoras();
+});
+
+function cargarProductos() {
+  console.log("Cargando productos desde json-server...");
+  
+  fetch("http://172.16.221.74:3000/productes")
+      .then(response => {
+          if (!response.ok) {
+              throw new Error("No se pudo cargar el JSON desde json-server");
+          }
+          return response.json();
+      })
+      .then(data => {
+          console.log("Datos recibidos:", data);
+          const contenedor = document.getElementById("contenedor-productos");
+
+          data.forEach(producto => {
+              const card = document.createElement("div");
+              card.classList.add("tarjeta-producto");
+
+              card.innerHTML = `
+                  <img src="${producto.img}" alt="${producto.nom}">
+                  <h2>${producto.nom}</h2>
+                  <p class="producto-descripcion">${producto.descripcio}</p>
+                  <span class="producto-precio">${producto.preu.toFixed(2)} €</span>
+                  <button class="boton">Ver Detalles</button>
+              `;
+
+              contenedor.appendChild(card);
+          });
+      })
+      .catch(err => console.error("Error cargando productos:", err));
+}
+
+function cargarImpresoras() {
+  console.log("Cargando impresoras desde json-server...");
+  
+  fetch("http://172.16.221.74:3000/impresoras")
+      .then(response => {
+          if (!response.ok) {
+              throw new Error("No se pudo cargar el JSON desde json-server");
+          }
+          return response.json();
+      })
+      .then(data => {
+          console.log("Datos recibidos:", data);
+          const contenedor = document.getElementById("contenedor-impresoras");
+
+          data.forEach(impresora => {
+              const card = document.createElement("div");
+              card.classList.add("tarjeta-producto");
+
+              card.innerHTML = `
+                  <img src="${impresora.img}" alt="${impresora.nom}">
+                  <h2>${impresora.nom}</h2>
+                  <p class="producto-descripcion">${impresora.descripcio}</p>
+                  <span class="producto-precio">${impresora.preu.toFixed(2)} €</span>
+                  <button class="boton">Ver Detalles</button>
+              `;
+
+              contenedor.appendChild(card);
+          });
+      })
+      .catch(err => console.error("Error cargando impresoras:", err));
+}

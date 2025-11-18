@@ -2,7 +2,7 @@
 session_start();
 require_once '../includes/json_connect.php';
 
-// Si ja està loguejat, redirigir al perfil
+// Si ya está logueado, redirigir al perfil
 if (isset($_SESSION['user_id'])) {
     header("Location: profile.php");
     exit;
@@ -14,33 +14,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = trim($_POST['username']);
     $password = $_POST['password'];
 
-    // 1. Buscar usuari
+    // 1. Buscar usuario
     $user = findUserByUsername($username);
 
-    // 2. Verificar contrasenya
+    // 2. Verificar contraseña
     if ($user && password_verify($password, $user['contrasenya'])) {
-        // 3. Crear sessió segura
-        session_regenerate_id(true); // Prevenir Session Fixation
+        // 3. Crear sesión segura
+        session_regenerate_id(true); // Prevención de Session Fixation
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['username'] = $user['nom_usuari'];
 
-        // 4. Crear cookie (Opcional, com a requisit extra)
+        // 4. Crear cookie (Opcional)
         // Expira en 1 hora (3600s)
         setcookie('user_id', $user['id'], time() + 3600, "/");
 
         header("Location: profile.php");
         exit;
     } else {
-        $error = "Usuari o contrasenya incorrectes.";
+        $error = "Usuario o contraseña incorrectos.";
     }
 }
 ?>
 
 <!DOCTYPE html>
-<html lang="ca">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Inici de Sessió - PrintHub</title>
+    <title>Inicio de Sesión - PrintHub</title>
     <link rel="stylesheet" href="../src/css/loginStyle.css">
 </head>
 <body>
@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   <ul class="iconos-utilidad">
     <li><a href="#" aria-label="Carrito">🛒</a></li>
-    <li><a href="auth/profile.php" aria-label="Iniciar Sesión">👤</a></li>
+    <li><a href="./profile.php" aria-label="Perfil">👤</a></li>
   </ul>
 
   <h3 class="etiqueta-menu">Menú</h3>
@@ -74,25 +74,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <li><a href="#como-funciona">Diseñar Maquetas</a></li>
       <li><a href="/src/galeria.html">Galería de Proyectos</a></li>
       <li><a href="#impresoras">Impresoras 3D</a></li>
-      <li><a href="/php/contact.php">Formulario Contacto</a></li>
+      <li><a href="/php/contact.php">Formulario de Contacto</a></li>
       <li><a href="src/admin_importar.html">Importar Información</a></li>
     </ul>
   </nav>
 </aside>
 
-    <div class="container">
-        <h2>🔐 Iniciar Sessió</h2>
-        <?php if($error): ?><p class="error"><?= $error ?></p><?php endif; ?>
-        
-        <form action="login.php" method="POST">
-            <input type="text" name="username" placeholder="Nom d'usuari" required>
-            <input type="password" name="password" placeholder="Contrasenya" required>
-            <button type="submit">Entrar</button>
-        </form>
-        <p>No tens compte? <a href="register.php">Registra't</a></p>
-    </div>
+<div class="container">
+    <h2>🔐 Iniciar Sesión</h2>
+    <?php if($error): ?><p class="error"><?= $error ?></p><?php endif; ?>
+    
+    <form action="login.php" method="POST">
+        <input type="text" name="username" placeholder="Nombre de usuario" required>
+        <input type="password" name="password" placeholder="Contraseña" required>
+        <button type="submit">Entrar</button>
+    </form>
+
+    <p>¿No tienes cuenta? <a href="register.php">Regístrate</a></p>
+</div>
+
 </body>
 <script src="../src/js/script.js"></script>
-
-
 </html>

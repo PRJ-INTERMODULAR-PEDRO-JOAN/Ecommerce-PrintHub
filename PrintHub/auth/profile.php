@@ -2,7 +2,7 @@
 session_start();
 require_once '../includes/json_connect.php';
 
-// 1. Control d'accés
+// 1. Control de acceso
 if (!isset($_SESSION['user_id'])) {
     if (isset($_COOKIE['user_id'])) {
         $_SESSION['user_id'] = $_COOKIE['user_id'];
@@ -30,15 +30,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_account'])) {
         header("Location: login.php?msg=deleted");
         exit;
     } else {
-        echo "<script>alert('Error al eliminar l\'usuari.');</script>";
+        echo "<script>alert('Error al eliminar el usuario.');</script>";
     }
 }
 
-// 2. Obtenir dades actuals de l'usuari
+// 2. Obtener datos actuales del usuario
 $user = findUserById($userId);
 
 if (!$user) {
-    // Si el usuario no existe (por si acaso), fuera
+    // Si el usuario no existe (por si acaso)
     session_destroy();
     header("Location: login.php");
     exit;
@@ -46,11 +46,11 @@ if (!$user) {
 ?>
 
 <!DOCTYPE html>
-<html lang="ca">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>El meu Perfil - PrintHub</title>
+    <title>Mi Perfil - PrintHub</title>
     <link rel="stylesheet" href="../src/css/perfilStyle.css">
 </head>
 <body>
@@ -66,7 +66,7 @@ if (!$user) {
 
   <ul class="iconos-utilidad">
     <li><a href="#" aria-label="Carrito">🛒</a></li>
-    <li><a href="auth/profile.php" aria-label="Iniciar Sesión">👤</a></li>
+    <li><a href="./profile.php" aria-label="Perfil">👤</a></li>
   </ul>
 
   <h3 class="etiqueta-menu">Menú</h3>
@@ -84,33 +84,33 @@ if (!$user) {
       <li><a href="#como-funciona">Diseñar Maquetas</a></li>
       <li><a href="/src/galeria.html">Galería de Proyectos</a></li>
       <li><a href="#impresoras">Impresoras 3D</a></li>
-      <li><a href="/php/contact.php">Formulario Contacto</a></li>
+      <li><a href="/php/contact.php">Formulario de Contacto</a></li>
       <li><a href="src/admin_importar.html">Importar Información</a></li>
     </ul>
   </nav>
 </aside>
 
     <div class="container">
-        <h2>👤 El meu Perfil</h2>
+        <h2>👤 Mi Perfil</h2>
         
         <div class="profile-info">
-            <p><strong>Nom d'usuari:</strong> <?= htmlspecialchars($user['nom_usuari']) ?></p>
-            <p><strong>Nom:</strong> <?= htmlspecialchars($user['nom']) ?></p>
-            <p><strong>Cognoms:</strong> <?= htmlspecialchars($user['cognoms']) ?></p>
-            <p><strong>Email:</strong> <?= htmlspecialchars($user['email']) ?></p>
-            <p><strong>Membre des de:</strong> <?= date('d/m/Y', strtotime($user['data_registre'])) ?></p>
+            <p><strong>Nombre de usuario:</strong> <?= htmlspecialchars($user['nom_usuari']) ?></p>
+            <p><strong>Nombre:</strong> <?= htmlspecialchars($user['nom']) ?></p>
+            <p><strong>Apellidos:</strong> <?= htmlspecialchars($user['cognoms']) ?></p>
+            <p><strong>Correo electrónico:</strong> <?= htmlspecialchars($user['email']) ?></p>
+            <p><strong>Miembro desde:</strong> <?= date('d/m/Y', strtotime($user['data_registre'])) ?></p>
         </div>
 
-        <a href="register.php" class="btn-edit">✏️ Editar Dades</a>
+        <a href="register.php" class="btn-edit">✏️ Editar Datos</a>
 
-        <form method="POST" action="profile.php" onsubmit="return confirm('⚠️ ATENCIÓ:\n\nEstàs segur que vols eliminar el teu compte permanentment?\n\nAquesta acció no es pot desfer.');">
-            <button type="submit" name="delete_account" class="btn-delete">🗑️ Eliminar Compte</button>
+        <form method="POST" action="profile.php" onsubmit="return confirm('⚠️ ATENCIÓN:\n\n¿Estás seguro de que deseas eliminar tu cuenta permanentemente?\n\nEsta acción no se puede deshacer.');">
+            <button type="submit" name="delete_account" class="btn-delete">🗑️ Eliminar Cuenta</button>
         </form>
 
         <hr>
 
-        <a href="../index.html" class="link-home">🏠 Tornar a l'Inici</a>
-        <a href="logout.php" class="link-logout">🚪 Tancar Sessió</a>
+        <a href="../index.html" class="link-home">🏠 Volver al Inicio</a>
+        <a href="logout.php" class="link-logout">🚪 Cerrar Sesión</a>
     </div>
 </body>
 <script src="../src/js/script.js"></script>

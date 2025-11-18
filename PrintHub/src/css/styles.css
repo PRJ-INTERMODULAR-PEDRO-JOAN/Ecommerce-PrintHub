@@ -362,37 +362,102 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* Fondo de Impresoras (Se mantiene para diferenciar color de fondo) */
+.impresoras-section {
+  width: 100%;
+  background: #ffffff;
+  padding: 40px 0; 
+  margin-top: 40px;
+}
+
+/* Título de Impresoras - Sincronizado con Productos Destacados */
+.impresoras-titulo {
+  text-align: center;
+  font-size: 3.2rem; 
+  text-decoration: underline 4px #FF6B00;
+  margin: 40px 0; 
+}
+
+
 .productos-destacados {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 24px;
-  padding: 60px 20px;
+  width: 100%;
+  padding: 40px 0;
+  margin-top: 40px;
+  /* No tocamos el fondo para mantener el original */
 }
 
 .productos-destacados h1 {
-  grid-column: 1 / -1;
   text-align: center;
+  font-size: 3.2rem;
+  text-decoration: underline 4px #FF6B00;
+  margin: 40px 0;
 }
 
+
+/* Contenedor de productos (4 por fila) */
+/* Misma estructura que Impresoras */
+.contenedor-productos {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(220px, 1fr));
+  gap: 28px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+
+/* Responsivo: 2 por fila en tablet */
+@media (max-width: 1024px) {
+  .contenedor-productos {
+    grid-template-columns: repeat(2, minmax(240px, 1fr));
+  }
+}
+
+/* Responsivo: 1 por fila en móvil */
+@media (max-width: 600px) {
+  .contenedor-productos {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Tarjeta (REUTILIZADA POR AMBAS SECCIONES) */
 .tarjeta-producto {
+  background: #FF6B00; /* Se mantiene tu color original */
+  padding: 18px;
+  border-radius: 14px;
   display: grid;
   gap: 10px;
   justify-items: center;
-  background:#FF6B00;
-  padding: 15px;
-  border-radius: 12px;
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: 0.3s ease;
 }
+
+.tarjeta-producto img {
+  width: 100%;
+  border-radius: 8px;
+}
+
 
 .tarjeta-producto:hover {
   transform: translateY(-8px);
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
 }
 
-.tarjeta-producto img {
-  width: 100%;
-  border-radius: 8px;
+
+.tarjeta-producto .producto-descripcion {
+  font-size: 0.9rem;
+  color: #222;
+  text-align: center;
+  min-height: 40px;
+}
+
+.tarjeta-producto .producto-precio {
+  font-family: 'Roboto Mono', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #000;
+  margin: 8px 0;
 }
 
 .tarjeta-producto .boton {
@@ -412,6 +477,7 @@ h1, h2, h3, h4, h5, h6 {
   transform: scale(1.08);
   box-shadow: 0 4px 15px rgba(255, 107, 0, 0.4);
 }
+
 
 .pie-pagina {
   background: #e8eff5;
@@ -506,29 +572,11 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 480px) {
   .hero h1 { font-size: 2rem; }
   .hero p { font-size: 1rem; }
-  .productos-destacados {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-  .tarjeta-producto {
-    width: 100%; 
-    font-size: 14px;
-    padding: 10px;
-  }
+  /* REGLAS ELIMINADAS: Se eliminan las reglas que afectaban a .productos-destacados y .tarjeta-producto aquí. */
 }
 
 @media (max-width: 768px) {
-  .productos-destacados {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
-  .tarjeta-producto {
-    width: 100%; 
-    font-size: 14px;
-    padding: 10px;
-  }
+  /* REGLAS ELIMINADAS: Se eliminan las reglas que afectaban a .productos-destacados y .tarjeta-producto aquí. */
 }
 
 @media (max-width: 900px) {
@@ -590,9 +638,6 @@ h1, h2, h3, h4, h5, h6 {
   margin: 8px 0;
 }
 
-.seccion-impresoras {
-  background-color: #f4f8ff;
-}
 
 .seccion-como-funciona {
   padding: 60px 20px;
@@ -734,4 +779,3 @@ h1, h2, h3, h4, h5, h6 {
   color: #FF6B00;
   text-align: right;
 }
-

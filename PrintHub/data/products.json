@@ -5,7 +5,7 @@
             "sku": "FIG-LNK-01",
             "nom": "Figura Link (Zelda)",
             "descripcio": "Figura de resina de Link, de The Legend of Zelda.",
-            "img": "public/FiguraLink.png",
+            "img": "public/FiguraLink.jpg",
             "preu": 29.99,
             "estoc": 10
         },
@@ -14,7 +14,7 @@
             "sku": "MAQ-SGF-01",
             "nom": "Maqueta Sagrada Familia",
             "descripcio": "Maqueta detallada de la Sagrada Familia, impresa en PLA.",
-            "img": "public/Maqueta_Sagrada_Familia.png",
+            "img": "public/Maqueta_Sagrada_Familia.jpg",
             "preu": 79.95,
             "estoc": 5
         },
@@ -23,9 +23,56 @@
             "sku": "FIG-AAT-01",
             "nom": "Figura Aatrox (LoL)",
             "descripcio": "Figura del personatge Aatrox de League of Legends.",
-            "img": "public/aatrox.png",
+            "img": "public/aatrox.jpg",
             "preu": 34.5,
             "estoc": 8
+        },
+        {
+            "id": 4,
+            "sku": "FIG-LAM-01",
+            "nom": "Maqueta Lamborghini",
+            "descripcio": "Maqueta detallada del gran Lamborghini",
+            "img": "public/lambo_2.jpg",
+            "preu": 49.99,
+            "estoc": 5
+        }
+    ],
+    "impresoras": [
+        {
+            "id": 5,
+            "sku": "IMP-END-V3",
+            "nom": "Figura Link (Zelda)",
+            "descripcio": "Figura de resina de Link, de The Legend of Zelda.",
+            "img": "public/FiguraLink.jpg",
+            "preu": 29.99,
+            "estoc": 10
+        },
+        {
+            "id": 7,
+            "sku": "MAQ-SGF-01",
+            "nom": "Maqueta Sagrada Familia",
+            "descripcio": "Maqueta detallada de la Sagrada Familia, impresa en PLA.",
+            "img": "public/Maqueta_Sagrada_Familia.jpg",
+            "preu": 79.95,
+            "estoc": 5
+        },
+        {
+            "id": 8,
+            "sku": "FIG-AAT-01",
+            "nom": "Figura Aatrox (LoL)",
+            "descripcio": "Figura del personatge Aatrox de League of Legends.",
+            "img": "public/aatrox.jpg",
+            "preu": 34.5,
+            "estoc": 8
+        },
+        {
+            "id": 9,
+            "sku": "FIG-LAM-01",
+            "nom": "Maqueta Lamborghini",
+            "descripcio": "Maqueta detallada del gran Lamborghini",
+            "img": "public/lambo_2.jpg",
+            "preu": 49.99,
+            "estoc": 5
         }
     ]
 }
