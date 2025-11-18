@@ -74,6 +74,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   </aside>
 
 
+  <div><br><br></div>
+
   <main class="form-container">
     <section class="contact-section">
       <h1>Contacta con <span class="highlight">PrintHub</span></h1>
@@ -120,6 +122,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       </form>
     </section>
   </main>
+
+  <div><br><br></div>
 
   <footer class="pie-pagina">
       <div class="pie-pagina-contenedor">

@@ -15,6 +15,19 @@ services:
       networks:
         - default
 
+  jsonserver2:
+      image: node:20-alpine
+      container_name: jsonserver2
+      working_dir: /app
+      command: sh -c "npm i -g json-server && json-server --watch /data/users.json --host 0.0.0.0 --port 3001"
+      volumes:
+        - ./data:/data
+      ports:
+        - "3001:3001"
+      restart: unless-stopped
+      networks:
+        - default
+
   nginx:
     image: nginx:1.23
     container_name: webserver-projecte

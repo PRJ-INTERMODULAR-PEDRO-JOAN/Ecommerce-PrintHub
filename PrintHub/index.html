@@ -1,262 +1,341 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PrintHub</title>
-  <link rel="stylesheet" href="src/css/styles.css" />
-  <link rel="icon" type="image/x-icon" href="public/logoPrintHubIcon.ico">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PrintHub</title>
+    <link rel="stylesheet" href="src/css/styles.css" />
+    <link rel="icon" type="image/x-icon" href="public/logoPrintHubIcon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Roboto+Mono:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <button class="alternar-menu">☰</button>
 
-  <button class="alternar-menu">☰</button>
-
-  <aside class="barra-lateral">
-    <div class="barra-lateral-cabecera">
-      <h1 class="logo-texto">Print<span class="resaltado">Hub</span></h1>
-      <div class="logo">
-        <img src="public/logoPrintHub.jpeg" alt="Logo de PrintHub" />
+    <aside class="barra-lateral">
+      <div class="barra-lateral-cabecera">
+        <h1 class="logo-texto">Print<span class="resaltado">Hub</span></h1>
+        <div class="logo">
+          <img src="public/logoPrintHub.jpeg" alt="Logo de PrintHub" />
+        </div>
       </div>
-    </div>
 
-    <ul class="iconos-utilidad">
-      <li><a href="#" aria-label="Carrito">🛒</a></li>
-      <li><a href="#" aria-label="Iniciar Sesión">👤</a></li>
-    </ul>
-
-    <h3 class="etiqueta-menu">Menú</h3>
-    <nav>
-      <ul>
-        <li><a href="../index.html">Inicio</a></li>
-        <li class="desplegable">
-          <a href="#">Maquetas Personalizadas ▾</a>
-          <ul class="contenido-desplegable">
-            <li><a href="#">Videojuegos</a></li>
-            <li><a href="#">Arquitectura</a></li>
-            <li><a href="#">Automóviles</a></li>
-          </ul>
-        </li>
-        <li><a href="#como-funciona">Diseñar Maquetas</a></li>
-        <li><a href="src/galeria.html">Galería de Proyectos</a></li>
-        <li><a href="#impresoras">Impresoras 3D</a></li>
-        <li><a href="php/contact.php">Formulario Contacto</a></li>
-        <li><a href="src/admin_importar.html">Importar Información</a></li>
+      <ul class="iconos-utilidad">
+        <li><a href="#" aria-label="Carrito">🛒</a></li>
+        <li><a href="auth/profile.php" aria-label="Iniciar Sesión">👤</a></li>
       </ul>
-    </nav>
-  </aside>
 
-  <main class="contenido-principal">
-    <!-- Banner superior -->
-    <a href="#destacados" class="enlace-banner">
-      <div class="banner">
-        <div class="banner-texto">
-          ¡Oferta especial de Navidad! 🦌🎅 Solo por tiempo limitado, hasta el 31 de diciembre.
-        </div>
-      </div>
-    </a>
-
-    <!-- Hero principal -->
-    <section class="hero" style="background: url('public/fondoPrincipio.jpg') no-repeat center center/cover;">
-      <div class="hero-contenido">
-        <h1>Bienvenido/a a Print<span class="resaltado">Hub</span></h1>
-        <p>Innovación y calidad en cada producto</p>
-        <a href="#destacados" class="flecha">&#x25BC;</a>
-      </div>
-    </section>
-
-    <!-- Creeper Hero -->
-    <section class="creeper-hero" style="background: url('public/creeper.jpg') no-repeat center center/cover;">
-      <div class="creeper-contenido">
-        <h1>NUEVO CREEPER XXL</h1>
-        <p>Suéltalo que explota</p>
-        <div class="creeper-botones">
-          <button class="boton-creeper">MÁS INFORMACIÓN</button>
-          <button class="boton-creeper">COMPRAR</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Productos Destacados -->
-    <section id="destacados" class="productos-destacados">
-      <h1>Productos Destacados</h1>
-      <div class="tarjeta-producto">
-        <img src="public/FiguraLink.jpg" alt="Figura de Link (Zelda)" />
-        <h2>Figura Link</h2>
-        <p class="producto-descripcion">Figura detallada de Link, ideal para coleccionistas.</p>
-        <span class="producto-precio">49,99 €</span>
-        <button class="boton">Ver Detalles</button>
-      </div>
-      <div class="tarjeta-producto">
-        <img src="public/Maqueta_Sagrada_Familia.jpg" alt="Maqueta Sagrada Familia" />
-        <h2>Figura Sagrada Familia</h2>
-        <p class="producto-descripcion">Maqueta arquitectónica de alta precisión.</p>
-        <span class="producto-precio">89,90 €</span>
-        <button class="boton">Ver Detalles</button>
-      </div>
-      <div class="tarjeta-producto">
-        <img src="public/lambo_2.jpg" alt="Maqueta Lamborghini" />
-        <h2>Figura Lamborghini</h2>
-        <p class="producto-descripcion">Modelo a escala de Lamborghini con detalles realistas.</p>
-        <span class="producto-precio">64,50 €</span>
-        <button class="boton">Ver Detalles</button>
-      </div>
-      <div class="tarjeta-producto">
-        <img src="public/aatrox.jpg" alt="Figura Aatrox (Videojuego)" />
-        <h2>Figura Aatrox</h2>
-        <p class="producto-descripcion">Impresionante figura del campeón de League of Legends.</p>
-        <span class="producto-precio">79,99 €</span>
-        <button class="boton">Ver Detalles</button>
-      </div>
-    </section>
-
-    <!-- Impresoras 3D -->
-    <section id="impresoras" class="productos-destacados seccion-impresoras">
-      <h1>Nuestras Impresoras 3D</h1>
-      <div class="tarjeta-producto">
-        <img src="public/ender-v3.jpg" alt="Impresora 3D Creality Ender 3" />
-        <h2>Creality Ender 3 V3</h2>
-        <p class="producto-descripcion">La impresora ideal para empezar en el mundo 3D.</p>
-        <span class="producto-precio">229,00 €</span>
-        <button class="boton">Comprar Ahora</button>
-      </div>
-      <div class="tarjeta-producto">
-        <img src="public/bambu-mini.jpg" alt="Impresora 3D Bambu Lab" />
-        <h2>Bambu Lab A1 Mini</h2>
-        <p class="producto-descripcion">Impresión multicolor de alta velocidad en un tamaño compacto.</p>
-        <span class="producto-precio">489,00 €</span>
-        <button class="boton">Comprar Ahora</button>
-      </div>
-      <div class="tarjeta-producto">
-        <img src="public/anycubic.jpg" alt="Impresora 3D de Resina" />
-        <h2>Anycubic Photon M5s</h2>
-        <p class="producto-descripcion">Nivel de detalle extremo para miniaturas y joyería (12K).</p>
-        <span class="producto-precio">399,00 €</span>
-        <button class="boton">Comprar Ahora</button>
-      </div>
-    </section>
-    <section class="seccion-sobre-nosotros">
-      <div class="contenedor-sobre-nosotros">
-        <div class="gif-sobre-nosotros">
-          <img src="public/impresora.gif" alt="GIF representativo de PrintHub">
-        </div>
-    
-        <div class="texto-sobre-nosotros">
-          <h2>Sobre Nosotros</h2>
-          <p>En PrintHub, nos especializamos en la creación de maquetas personalizadas utilizando tecnología de impresión 3D de última generación. Nuestro equipo de expertos trabaja con dedicación para transformar tus ideas en realidad, ofreciendo productos de alta calidad y atención al detalle.</p>
-          <p>Ya sea que busques una figura de tu videojuego favorito, una maqueta arquitectónica o un modelo de automóvil, en PrintHub tenemos la solución perfecta para ti. Nos comprometemos a brindar un servicio excepcional y a superar tus expectativas en cada proyecto.</p>
-        </div>
-      </div>
-    </section>
-  
-  
-    <section id="como-funciona" class="seccion-como-funciona">
-      <div class="contenedor-como-funciona">
-        <h2>¿Tienes una idea? La hacemos realidad</h2>
-        <p class="subtitulo-como-funciona">Nuestro proceso de diseño personalizado en 4 simples pasos.</p>
-        
-        <div class="pasos-como-funciona">
-          <div class="tarjeta-paso">
-            <span class="numero-paso">1</span>
-            <h3>Cuéntanos tu idea</h3>
-            <p>Rellena nuestro formulario de contacto con tu boceto, fotos o una simple descripción.</p>
-          </div>
-          <div class="tarjeta-paso">
-            <span class="numero-paso">2</span>
-            <h3>Diseño y Boceto 3D</h3>
-            <p>Nuestro equipo creará un modelo 3D y te lo enviará para tu aprobación.</p>
-          </div>
-          <div class="tarjeta-paso">
-            <span class="numero-paso">3</span>
-            <h3>Impresión y Calidad</h3>
-            <p>Usamos los mejores materiales (resina, PLA, PETG) para imprimir tu pieza con la máxima precisión.</p>
-          </div>
-          <div class="tarjeta-paso">
-            <span class="numero-paso">4</span>
-            <h3>Recíbelo en casa</h3>
-            <p>Empaquetamos tu creación con cuidado y te la enviamos lista para disfrutar.</p>
-          </div>
-        </div>
-        
-        <a href="php/contact.php" class="boton-cta-primario">Empezar mi Proyecto</a>
-      </div>
-    </section>
-    <section class="video">
-      <h2>Descubre Más Sobre PrintHub</h2>
-      <div class="video-contenedor">
-        <video autoplay loop muted playsinline>
-          <source src="public/Presentacion_Clientes.mp4" type="video/mp4">
-          Tu navegador no soporta el elemento de video.
-        </video>      
-      </div>
-    </section>
-    
-  
-    <section class="seccion-testimonios">
-      <h2>Qué dicen nuestros clientes</h2>
-      <div class="contenedor-testimonios">
-        <div class="tarjeta-testimonio">
-          <p class="cita-testimonio">"¡Increíble! Pedí una maqueta de mi coche soñado y el nivel de detalle es espectacular. 100% recomendado."</p>
-          <span class="autor-testimonio">- Carlos G.</span>
-        </div>
-        <div class="tarjeta-testimonio">
-          <p class="cita-testimonio">"El servicio de diseño personalizado es genial. Captaron mi idea a la primera y la figura de Aatrox quedó perfecta."</p>
-          <span class="autor-testimonio">- Laura M.</span>
-        </div>
-        <div class="tarjeta-testimonio">
-          <p class="cita-testimonio">"Compré mi primera impresora 3D aquí y el soporte fue excelente. Muy contenta con la Ender 3."</p>
-          <span class="autor-testimonio">- Javier R.</span>
-        </div>
-      </div>
-    </section>
-    <footer class="pie-pagina">
-      <div class="pie-pagina-contenedor">
-        
-        <div class="pie-pagina-izquierda">
-          <h2 class="logo">
-            Print<span class="resaltado">Hub</span>
-          </h2>
-          <br>
-          <div>
-            <a class="iconos-sociales" href="#"><img src="public/facebook.jpg" alt="Facebook"></a>
-            <a class="iconos-sociales" href="#"><img src="public/linkedIn.png" alt="LinkedIn"></a>
-            <a class="iconos-youtube" href="#"><img src="public/youtube.png" alt="YouTube"></a>
-            <a class="iconos-sociales" href="#"><img src="public/insta.jpg" alt="Instagram"></a>
-          </div>
-        </div>
-  
-        <div class="pie-pagina-centro">
-          <img src="public/fotterImage.jpg" alt="Imagen global 3D">
-        </div>
-  
-        <div class="pie-pagina-derecha">
-          <div class="servicios">
-            <h3>Servicios y productos</h3>
-            <ul>
-              <li><a href="#">Fabricación aditiva 3D</a></li>
-              <li><a href="#">Servicio de Impresión 3D</a></li>
-              <li><a href="#">Prototipado 3D</a></li>
-              <li><a href="#">Ingeniería y diseño</a></li>
+      <h3 class="etiqueta-menu">Menú</h3>
+      <nav>
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li class="desplegable">
+            <a href="#">Maquetas Personalizadas ▾</a>
+            <ul class="contenido-desplegable">
+              <li><a href="#">Videojuegos</a></li>
+              <li><a href="#">Arquitectura</a></li>
+              <li><a href="#">Automóviles</a></li>
             </ul>
-          </div>
-          <div class="contacto">
-            <h3>Contacto</h3>
-            <ul>
-              <li>📞 (+34) 951 753 852</li>
-              <li>📧 <a href="mailto:printhub@contact.me">printhub@contact.me</a></li>
-              <li>📍 Partida Cotes Altes, 27, 03804 Alcoi, Alicante</li>
-              <li>🕒 Lunes – Viernes: 8:00 – 13:30</li>
-            </ul>
+          </li>
+          <li><a href="#como-funciona">Diseñar Maquetas</a></li>
+          <li><a href="src/galeria.html">Galería de Proyectos</a></li>
+          <li><a href="#impresoras">Impresoras 3D</a></li>
+          <li><a href="php/contact.php">Formulario Contacto</a></li>
+          <li><a href="src/admin_importar.html">Importar Información</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="contenido-principal">
+      <!-- Banner superior -->
+      <a href="#destacados" class="enlace-banner">
+        <div class="banner">
+          <div class="banner-texto">
+            ¡Oferta especial de Navidad! 🦌🎅 Solo por tiempo limitado, hasta el
+            31 de diciembre.
           </div>
         </div>
-      </div>
-    </footer>
-    
-  </main>
+      </a>
 
-  <script src="src/js/script.js"></script>
-</body>
+      <!-- Hero principal -->
+      <section
+        class="hero"
+        style="
+          background: url('public/fondoPrincipio.jpg') no-repeat center
+            center/cover;
+        "
+      >
+        <div class="hero-contenido">
+          <h1>Bienvenido/a a Print<span class="resaltado">Hub</span></h1>
+          <p>Innovación y calidad en cada producto</p>
+          <a href="#destacados" class="flecha">&#x25BC;</a>
+        </div>
+      </section>
+
+      <!-- Creeper Hero -->
+      <section
+        class="creeper-hero"
+        style="
+          background: url('public/creeper.jpg') no-repeat center center/cover;
+        "
+      >
+        <div class="creeper-contenido">
+          <h1>NUEVO CREEPER XXL</h1>
+          <p>Suéltalo que explota</p>
+          <div class="creeper-botones">
+            <button class="boton-creeper">MÁS INFORMACIÓN</button>
+            <button class="boton-creeper">COMPRAR</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Productos Destacados -->
+      <section id="destacados" class="productos-destacados">
+        <h1>Productos Destacados</h1>
+        <div class="tarjeta-producto">
+          <img src="public/FiguraLink.jpg" alt="Figura de Link (Zelda)" />
+          <h2>Figura Link</h2>
+          <p class="producto-descripcion">
+            Figura detallada de Link, ideal para coleccionistas.
+          </p>
+          <span class="producto-precio">49,99 €</span>
+          <button class="boton">Ver Detalles</button>
+        </div>
+        <div class="tarjeta-producto">
+          <img
+            src="public/Maqueta_Sagrada_Familia.jpg"
+            alt="Maqueta Sagrada Familia"
+          />
+          <h2>Figura Sagrada Familia</h2>
+          <p class="producto-descripcion">
+            Maqueta arquitectónica de alta precisión.
+          </p>
+          <span class="producto-precio">89,90 €</span>
+          <button class="boton">Ver Detalles</button>
+        </div>
+        <div class="tarjeta-producto">
+          <img src="public/lambo_2.jpg" alt="Maqueta Lamborghini" />
+          <h2>Figura Lamborghini</h2>
+          <p class="producto-descripcion">
+            Modelo a escala de Lamborghini con detalles realistas.
+          </p>
+          <span class="producto-precio">64,50 €</span>
+          <button class="boton">Ver Detalles</button>
+        </div>
+        <div class="tarjeta-producto">
+          <img src="public/aatrox.jpg" alt="Figura Aatrox (Videojuego)" />
+          <h2>Figura Aatrox</h2>
+          <p class="producto-descripcion">
+            Impresionante figura del campeón de League of Legends.
+          </p>
+          <span class="producto-precio">79,99 €</span>
+          <button class="boton">Ver Detalles</button>
+        </div>
+      </section>
+
+      <!-- Impresoras 3D -->
+      <section id="impresoras" class="productos-destacados seccion-impresoras">
+        <h1>Nuestras Impresoras 3D</h1>
+        <div class="tarjeta-producto">
+          <img src="public/ender-v3.jpg" alt="Impresora 3D Creality Ender 3" />
+          <h2>Creality Ender 3 V3</h2>
+          <p class="producto-descripcion">
+            La impresora ideal para empezar en el mundo 3D.
+          </p>
+          <span class="producto-precio">229,00 €</span>
+          <button class="boton">Comprar Ahora</button>
+        </div>
+        <div class="tarjeta-producto">
+          <img src="public/bambu-mini.jpg" alt="Impresora 3D Bambu Lab" />
+          <h2>Bambu Lab A1 Mini</h2>
+          <p class="producto-descripcion">
+            Impresión multicolor de alta velocidad en un tamaño compacto.
+          </p>
+          <span class="producto-precio">489,00 €</span>
+          <button class="boton">Comprar Ahora</button>
+        </div>
+        <div class="tarjeta-producto">
+          <img src="public/anycubic.jpg" alt="Impresora 3D de Resina" />
+          <h2>Anycubic Photon M5s</h2>
+          <p class="producto-descripcion">
+            Nivel de detalle extremo para miniaturas y joyería (12K).
+          </p>
+          <span class="producto-precio">399,00 €</span>
+          <button class="boton">Comprar Ahora</button>
+        </div>
+      </section>
+      <section class="seccion-sobre-nosotros">
+        <div class="contenedor-sobre-nosotros">
+          <div class="gif-sobre-nosotros">
+            <img
+              src="public/impresora.gif"
+              alt="GIF representativo de PrintHub"
+            />
+          </div>
+
+          <div class="texto-sobre-nosotros">
+            <h2>Sobre Nosotros</h2>
+            <p>
+              En PrintHub, nos especializamos en la creación de maquetas
+              personalizadas utilizando tecnología de impresión 3D de última
+              generación. Nuestro equipo de expertos trabaja con dedicación para
+              transformar tus ideas en realidad, ofreciendo productos de alta
+              calidad y atención al detalle.
+            </p>
+            <p>
+              Ya sea que busques una figura de tu videojuego favorito, una
+              maqueta arquitectónica o un modelo de automóvil, en PrintHub
+              tenemos la solución perfecta para ti. Nos comprometemos a brindar
+              un servicio excepcional y a superar tus expectativas en cada
+              proyecto.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="como-funciona" class="seccion-como-funciona">
+        <div class="contenedor-como-funciona">
+          <h2>¿Tienes una idea? La hacemos realidad</h2>
+          <p class="subtitulo-como-funciona">
+            Nuestro proceso de diseño personalizado en 4 simples pasos.
+          </p>
+
+          <div class="pasos-como-funciona">
+            <div class="tarjeta-paso">
+              <span class="numero-paso">1</span>
+              <h3>Cuéntanos tu idea</h3>
+              <p>
+                Rellena nuestro formulario de contacto con tu boceto, fotos o
+                una simple descripción.
+              </p>
+            </div>
+            <div class="tarjeta-paso">
+              <span class="numero-paso">2</span>
+              <h3>Diseño y Boceto 3D</h3>
+              <p>
+                Nuestro equipo creará un modelo 3D y te lo enviará para tu
+                aprobación.
+              </p>
+            </div>
+            <div class="tarjeta-paso">
+              <span class="numero-paso">3</span>
+              <h3>Impresión y Calidad</h3>
+              <p>
+                Usamos los mejores materiales (resina, PLA, PETG) para imprimir
+                tu pieza con la máxima precisión.
+              </p>
+            </div>
+            <div class="tarjeta-paso">
+              <span class="numero-paso">4</span>
+              <h3>Recíbelo en casa</h3>
+              <p>
+                Empaquetamos tu creación con cuidado y te la enviamos lista para
+                disfrutar.
+              </p>
+            </div>
+          </div>
+
+          <a href="php/contact.php" class="boton-cta-primario"
+            >Empezar mi Proyecto</a
+          >
+        </div>
+      </section>
+      <section class="video">
+        <h2>Descubre Más Sobre PrintHub</h2>
+        <div class="video-contenedor">
+          <video autoplay loop muted playsinline>
+            <source src="public/Presentacion_Clientes.mp4" type="video/mp4" />
+            Tu navegador no soporta el elemento de video.
+          </video>
+        </div>
+      </section>
+
+      <section class="seccion-testimonios">
+        <h2>Qué dicen nuestros clientes</h2>
+        <div class="contenedor-testimonios">
+          <div class="tarjeta-testimonio">
+            <p class="cita-testimonio">
+              "¡Increíble! Pedí una maqueta de mi coche soñado y el nivel de
+              detalle es espectacular. 100% recomendado."
+            </p>
+            <span class="autor-testimonio">- Carlos G.</span>
+          </div>
+          <div class="tarjeta-testimonio">
+            <p class="cita-testimonio">
+              "El servicio de diseño personalizado es genial. Captaron mi idea a
+              la primera y la figura de Aatrox quedó perfecta."
+            </p>
+            <span class="autor-testimonio">- Laura M.</span>
+          </div>
+          <div class="tarjeta-testimonio">
+            <p class="cita-testimonio">
+              "Compré mi primera impresora 3D aquí y el soporte fue excelente.
+              Muy contenta con la Ender 3."
+            </p>
+            <span class="autor-testimonio">- Javier R.</span>
+          </div>
+        </div>
+      </section>
+      <footer class="pie-pagina">
+        <div class="pie-pagina-contenedor">
+          <div class="pie-pagina-izquierda">
+            <h2 class="logo">Print<span class="resaltado">Hub</span></h2>
+            <br />
+            <div>
+              <a class="iconos-sociales" href="#"
+                ><img src="public/facebook.jpg" alt="Facebook"
+              /></a>
+              <a class="iconos-sociales" href="#"
+                ><img src="public/linkedIn.png" alt="LinkedIn"
+              /></a>
+              <a class="iconos-youtube" href="#"
+                ><img src="public/youtube.png" alt="YouTube"
+              /></a>
+              <a class="iconos-sociales" href="#"
+                ><img src="public/insta.jpg" alt="Instagram"
+              /></a>
+            </div>
+          </div>
+
+          <div class="pie-pagina-centro">
+            <img src="public/fotterImage.jpg" alt="Imagen global 3D" />
+          </div>
+
+          <div class="pie-pagina-derecha">
+            <div class="servicios">
+              <h3>Servicios y productos</h3>
+              <ul>
+                <li><a href="#">Fabricación aditiva 3D</a></li>
+                <li><a href="#">Servicio de Impresión 3D</a></li>
+                <li><a href="#">Prototipado 3D</a></li>
+                <li><a href="#">Ingeniería y diseño</a></li>
+              </ul>
+            </div>
+            <div class="contacto">
+              <h3>Contacto</h3>
+              <ul>
+                <li>📞 (+34) 951 753 852</li>
+                <li>
+                  📧
+                  <a href="mailto:printhub@contact.me">printhub@contact.me</a>
+                </li>
+                <li>📍 Partida Cotes Altes, 27, 03804 Alcoi, Alicante</li>
+                <li>🕒 Lunes – Viernes: 8:00 – 13:30</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script src="src/js/script.js"></script>
+  </body>
 </html>
