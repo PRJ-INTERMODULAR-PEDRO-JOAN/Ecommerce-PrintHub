@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function cargarProductos() {
   console.log("Cargando productos desde json-server...");
 
-  fetch("http://localhost:3000/productes")
+  fetch("http://172.16.221.99:3000/productes")
     .then(response => {
       if (!response.ok) {
         throw new Error("No se pudo cargar el JSON desde json-server");
@@ -77,7 +77,7 @@ function cargarProductos() {
 function cargarImpresoras() {
   console.log("Cargando impresoras desde json-server...");
 
-  fetch("http://localhost:3000/impresoras")
+  fetch("http://172.16.221.99:3000/impresoras")
     .then(response => {
       if (!response.ok) {
         throw new Error("No se pudo cargar el JSON desde json-server");

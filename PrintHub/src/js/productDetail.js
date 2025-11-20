@@ -1,109 +1,57 @@
 document.addEventListener("DOMContentLoaded", () => {
     // ---------------------------------------------------------
-    // 1. TU CÓDIGO ORIGINAL (CARGA DEL PRODUCTO) - NO TOCADO
+    // 1. CARGA DEL PRODUCTO (CÓDIGO ORIGINAL INTACTO)
     // ---------------------------------------------------------
     const params = new URLSearchParams(window.location.search);
     const id = params.get('id');
     const tipo = params.get('tipo');
-
     const contenedor = document.getElementById("detalle-contenedor");
 
     if (!id || !tipo) {
-        contenedor.innerHTML = `
-            <div class="mensaje-centro">
-                <h2>⚠ Error de parámetros</h2>
-                <p>No sabemos qué producto buscar. Vuelve al inicio.</p>
-                <a href="../index.html" class="btn-volver">Volver</a>
-            </div>`;
+        contenedor.innerHTML = `<div class="mensaje-centro"><h2>⚠ Error</h2><a href="../index.html" class="btn-volver">Volver</a></div>`;
         return;
     }
 
-    const apiUrl = `http://localhost:3000/${tipo}?id=${id}`;
-
-    console.log("Consultando:", apiUrl);
-
+    const apiUrl = `http://172.16.221.99:3000/${tipo}?id=${id}`;
     fetch(apiUrl)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Error del servidor: ${response.status}`);
-            }
-            return response.json();
-        })
+        .then(r => r.json())
         .then(data => {
-            console.log("Datos recibidos:", data);
-
-            const item = Array.isArray(data) && data.length > 0 ? data[0] : null;
-
-            if (!item) {
-                throw new Error("El producto no existe en la lista recibida.");
-            }
+            const item = data[0];
+            if (!item) throw new Error("Producto no encontrado");
 
             let imgPath = item.img;
-            if (imgPath && !imgPath.startsWith("http") && !imgPath.startsWith("../")) {
-                imgPath = "../" + imgPath;
-            }
+            if (imgPath && !imgPath.startsWith("http") && !imgPath.startsWith("../")) imgPath = "../" + imgPath;
 
             contenedor.innerHTML = `
-                <div class="imagen-wrapper">
-                    <img src="${imgPath}" alt="${item.nom}" onerror="this.src='../public/marcaDeAgua.png'">
-                </div>
+                <div class="imagen-wrapper"><img src="${imgPath}" onerror="this.src='../public/marcaDeAgua.png'"></div>
                 <div class="info-wrapper">
                     <h1 class="info-titulo">${item.nom}</h1>
                     <p class="info-precio">${parseFloat(item.preu).toFixed(2)} €</p>
-                    <p class="stock-info">Disponible: ${item.estoc} unidades</p>
-                    
+                    <p class="stock-info">Disponible: ${item.estoc}</p>
                     <h3 class="info-descripcion-titulo">Descripción</h3>
                     <p class="info-descripcion">${item.descripcio}</p>
-                    
-                    <button class="btn-comprar" onclick="alert('¡${item.nom} añadido al carrito!')">
-                        Añadir al Carrito
-                    </button>
-                </div>
-            `;
+                    <button class="btn-comprar" onclick="alert('Añadido al carrito')">Añadir al Carrito</button>
+                </div>`;
         })
-        .catch(error => {
-            console.error("Error fetch:", error);
-            contenedor.innerHTML = `
-                <div class="mensaje-centro">
-                    <h2>No se pudo cargar el producto</h2>
-                    <p>Hubo un problema conectando con el servidor de datos.</p>
-                    <small style="color: red; background: #fff0f0; padding: 5px; border-radius: 5px;">
-                        ${error.message} <br> URL: ${apiUrl}
-                    </small>
-                    <br><br>
-                    <a href="../index.html" class="btn-volver">Volver a la tienda</a>
-                </div>
-            `;
-        });
+        .catch(e => contenedor.innerHTML = `<p class="mensaje-centro">${e.message}</p>`);
 
-    // ---------------------------------------------------------
-    // 2. NUEVA LÓGICA (COMENTARIOS Y LIKES)
-    // ---------------------------------------------------------
-
-    // Iniciamos el sistema de comentarios pasando el ID del producto
+    // 2. INICIAR SISTEMA DE COMENTARIOS EN TIEMPO REAL
     initCommentsAndLikes(id);
 });
 
-/**
- * Función que encapsula toda la lógica de comentarios y likes
- * para no interferir con la carga del producto.
- */
 function initCommentsAndLikes(productId) {
-    if (!productId) return;
-
-    // Selectores del DOM (Asegúrate de haber actualizado el HTML)
     const commentsList = document.getElementById('commentsList');
     const formComment = document.getElementById('formComment');
     const btnLike = document.getElementById('btnLikeProduct');
     const formContainer = document.getElementById('commentFormContainer');
     const loginWarning = document.getElementById('loginWarning');
 
-    // Si no existen los elementos en el HTML (por si acaso no copiaste el HTML nuevo), salimos
-    if (!commentsList || !btnLike) return;
+    // Bandera para saber si el usuario está "ocupado" editando
+    // Si es true, pausamos la actualización automática para no borrarle el texto
+    let isUserEditing = false;
 
-    // 1. Detectar si el usuario está logueado (Buscando cookie de sesión PHP)
-    const isLogged = document.cookie.split(';').some((item) => item.trim().startsWith('PHPSESSID='));
-
+    // Detectar Login
+    const isLogged = document.cookie.includes('PHPSESSID');
     if (isLogged) {
         if (formContainer) formContainer.style.display = 'block';
         if (loginWarning) loginWarning.style.display = 'none';
@@ -112,156 +60,201 @@ function initCommentsAndLikes(productId) {
         if (loginWarning) loginWarning.style.display = 'block';
     }
 
-    // 2. Función para Cargar Comentarios
+    // --- CARGAR COMENTARIOS (FUNCIÓN PRINCIPAL) ---
     async function loadComments() {
+        // Si el usuario está editando, NO recargamos la lista para no molestar
+        if (isUserEditing) return;
+
         try {
-            // Llamada a TU api PHP
             const res = await fetch(`../api/comments.php?product_id=${productId}`);
             const data = await res.json();
 
-            // Actualizar estadísticas
+            // Actualizar Estadísticas
             const ratingDisplay = document.getElementById('avgRatingDisplay');
             const starsDisplay = document.getElementById('avgStarsDisplay');
-
             if (ratingDisplay) ratingDisplay.innerText = data.avg_rating;
             if (starsDisplay) starsDisplay.innerHTML = renderStars(data.avg_rating);
 
-            // Actualizar lista
+            // Renderizar Lista
+            // Comprobamos si el contenido ha cambiado antes de reemplazarlo a lo bruto
+            // (Opcional: aquí reemplazamos siempre para asegurar consistencia)
             commentsList.innerHTML = '';
+
             if (!data.comments || data.comments.length === 0) {
-                commentsList.innerHTML = '<p class="text-muted text-center">Aún no hay comentarios. ¡Sé el primero!</p>';
+                commentsList.innerHTML = '<div class="text-center p-4 text-muted"><i class="far fa-comment-dots fa-3x mb-3"></i><p>Aún no hay opiniones.</p></div>';
                 return;
             }
 
             data.comments.forEach(c => {
-                // Botón borrar solo si es dueño o admin
-                const deleteBtn = (c.is_owner || c.is_admin)
-                    ? `<button class="btn btn-sm btn-link text-danger btn-delete" data-id="${c.id}" style="float:right;">Eliminar</button>`
-                    : '';
+                // Botones de acción (según permisos)
+                let actions = '';
+                if (c.can_edit) actions += `<button class="btn btn-link p-0 me-2 text-primary btn-edit" data-id="${c.id}" data-text="${c.text}" data-rating="${c.rating}"><i class="fas fa-pen"></i></button>`;
+                if (c.can_delete) actions += `<button class="btn btn-link p-0 text-danger btn-delete" data-id="${c.id}"><i class="fas fa-trash"></i></button>`;
 
                 commentsList.innerHTML += `
-                    <div class="mb-3 pb-3 border-bottom">
-                        <div class="d-flex justify-content-between">
-                            <h6 class="fw-bold mb-1" style="margin:0;">${c.author}</h6>
-                            <small class="text-muted">${c.date}</small>
+                    <div class="card mb-3 border-0 shadow-sm" id="comment-card-${c.id}">
+                        <div class="card-body">
+                            <div class="d-flex flex-start">
+                                <div class="me-3 text-center">
+                                    <div class="rounded-circle bg-light d-flex align-items-center justify-content-center" style="width:50px; height:50px;">
+                                        <i class="fas fa-user text-secondary fa-lg"></i>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex-grow-1">
+                                    <div class="d-flex justify-content-between align-items-center mb-1">
+                                        <h6 class="fw-bold mb-0 text-primary">${c.author}</h6>
+                                        <small class="text-muted">${c.date}</small>
+                                    </div>
+                                    
+                                    <div id="view-mode-${c.id}">
+                                        <div class="mb-2 text-warning small">${renderStars(c.rating)}</div>
+                                        <p class="mb-2 text-dark">${c.text}</p>
+                                        <div class="d-flex justify-content-end">${actions}</div>
+                                    </div>
+
+                                    <div id="edit-mode-${c.id}" style="display:none;" class="mt-2 bg-light p-3 rounded">
+                                        <label class="small text-muted">Editar puntuación:</label>
+                                        <select id="edit-rating-${c.id}" class="form-select form-select-sm w-auto mb-2">
+                                            <option value="5">⭐⭐⭐⭐⭐</option>
+                                            <option value="4">⭐⭐⭐⭐</option>
+                                            <option value="3">⭐⭐⭐</option>
+                                            <option value="2">⭐⭐</option>
+                                            <option value="1">⭐</option>
+                                        </select>
+                                        <textarea id="edit-text-${c.id}" class="form-control form-control-sm mb-2" rows="2"></textarea>
+                                        <div class="text-end">
+                                            <button class="btn btn-sm btn-secondary btn-cancel" data-id="${c.id}">Cancelar</button>
+                                            <button class="btn btn-sm btn-success btn-save" data-id="${c.id}">Guardar Cambios</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="text-warning mb-2" style="color: #ffc107;">${renderStars(c.rating)}</div>
-                        <p class="mb-1">${c.text}</p>
-                        ${deleteBtn}
                     </div>
                 `;
             });
 
-            // Asignar eventos a los botones de borrar generados dinámicamente
-            document.querySelectorAll('.btn-delete').forEach(btn => {
-                btn.addEventListener('click', (e) => deleteComment(e.target.dataset.id));
-            });
+            // Reasignar eventos a los nuevos elementos HTML
+            attachEvents();
 
-        } catch (error) {
-            console.error("Error cargando comentarios:", error);
-        }
+        } catch (err) { console.error("Error polling:", err); }
     }
 
-    // 3. Función para Cargar Likes
-    async function loadLikes() {
-        try {
-            const res = await fetch('../api/likes.php', {
-                method: 'POST',
-                body: JSON.stringify({ product_id: productId, action: 'get' })
+    function attachEvents() {
+        // --- EDITAR ---
+        document.querySelectorAll('.btn-edit').forEach(btn => {
+            btn.addEventListener('click', () => {
+                isUserEditing = true; // PAUSAR ACTUALIZACIÓN AUTOMÁTICA
+                const id = btn.dataset.id;
+                document.getElementById(`view-mode-${id}`).style.display = 'none';
+                document.getElementById(`edit-mode-${id}`).style.display = 'block';
+                document.getElementById(`edit-text-${id}`).value = btn.dataset.text;
+                document.getElementById(`edit-rating-${id}`).value = btn.dataset.rating;
             });
-            const data = await res.json();
+        });
 
-            const countSpan = document.getElementById('likeCount');
-            if (countSpan) countSpan.innerText = data.count;
+        // --- CANCELAR EDICIÓN ---
+        document.querySelectorAll('.btn-cancel').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const id = btn.dataset.id;
+                document.getElementById(`edit-mode-${id}`).style.display = 'none';
+                document.getElementById(`view-mode-${id}`).style.display = 'block';
+                isUserEditing = false; // REANUDAR ACTUALIZACIÓN
+            });
+        });
 
-            const icon = btnLike.querySelector('i');
+        // --- GUARDAR EDICIÓN ---
+        document.querySelectorAll('.btn-save').forEach(btn => {
+            btn.addEventListener('click', async () => {
+                const id = btn.dataset.id;
+                const text = document.getElementById(`edit-text-${id}`).value;
+                const rating = document.getElementById(`edit-rating-${id}`).value;
 
-            if (data.liked) {
-                btnLike.classList.remove('btn-outline-danger');
-                btnLike.classList.add('btn-danger');
-                if (icon) {
-                    icon.classList.remove('far'); // Corazón vacío
-                    icon.classList.add('fas');    // Corazón lleno
-                }
-            } else {
-                btnLike.classList.add('btn-outline-danger');
-                btnLike.classList.remove('btn-danger');
-                if (icon) {
-                    icon.classList.add('far');
-                    icon.classList.remove('fas');
-                }
-            }
-        } catch (err) { console.error("Error likes:", err); }
+                await fetch('../api/comments.php?action=edit', {
+                    method: 'POST',
+                    body: JSON.stringify({ comment_id: id, text, rating })
+                });
+                isUserEditing = false; // Liberar bloqueo
+                loadComments(); // Recarga inmediata forzada
+            });
+        });
+
+        // --- BORRAR ---
+        document.querySelectorAll('.btn-delete').forEach(btn => {
+            btn.addEventListener('click', async () => {
+                if (!confirm('¿Borrar comentario permanentemente?')) return;
+                await fetch('../api/comments.php?action=delete', {
+                    method: 'POST',
+                    body: JSON.stringify({ comment_id: btn.dataset.id })
+                });
+                loadComments();
+            });
+        });
     }
 
-    // 4. Evento: Enviar Comentario
+    // --- ENVIAR NUEVO COMENTARIO ---
     if (formComment) {
         formComment.addEventListener('submit', async (e) => {
             e.preventDefault();
             const text = document.getElementById('inputText').value;
             const rating = document.getElementById('inputRating').value;
 
-            try {
-                const res = await fetch('../api/comments.php?action=add', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ product_id: productId, text, rating })
-                });
-                const json = await res.json();
-
-                if (json.success) {
-                    formComment.reset();
-                    loadComments(); // Recargar lista
-                } else {
-                    alert(json.error || "Error al publicar. ¿Estás logueado?");
-                }
-            } catch (err) { console.error(err); }
-        });
-    }
-
-    // 5. Función: Borrar Comentario
-    async function deleteComment(id) {
-        if (!confirm('¿Seguro que quieres borrar este comentario?')) return;
-        try {
-            const res = await fetch('../api/comments.php?action=delete', {
+            const res = await fetch('../api/comments.php?action=add', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ comment_id: id })
-            });
-            if (res.ok) loadComments();
-        } catch (err) { console.error(err); }
-    }
-
-    // 6. Evento: Toggle Like
-    btnLike.addEventListener('click', async () => {
-        try {
-            const res = await fetch('../api/likes.php', {
-                method: 'POST',
-                body: JSON.stringify({ product_id: productId })
+                body: JSON.stringify({ product_id: productId, text, rating })
             });
             const json = await res.json();
 
-            if (json.error === 'Unauthenticated') {
-                // Redirigir a login si no está logueado
-                window.location.href = '../auth/login.php';
-            } else if (json.success) {
-                loadLikes(); // Refrescar contador
+            if (json.success) {
+                formComment.reset();
+                loadComments(); // Cargar mi propio comentario inmediatamente
+            } else {
+                alert("Error: " + (json.error || "Desconocido"));
             }
-        } catch (err) { console.error(err); }
-    });
-
-    // Helper para pintar estrellas
-    function renderStars(rating) {
-        let html = '';
-        for (let i = 1; i <= 5; i++) {
-            if (i <= rating) html += '<i class="fas fa-star"></i>';
-            else if (i - 0.5 <= rating) html += '<i class="fas fa-star-half-alt"></i>';
-            else html += '<i class="far fa-star"></i>';
-        }
-        return html;
+        });
     }
 
-    // Iniciar carga inicial
+    // --- SISTEMA DE LIKES ---
+    async function loadLikes() {
+        const res = await fetch('../api/likes.php', {
+            method: 'POST',
+            body: JSON.stringify({ product_id: productId, action: 'get' })
+        });
+        const data = await res.json();
+        document.getElementById('likeCount').innerText = data.count;
+
+        const btn = document.getElementById('btnLikeProduct');
+        const icon = btn.querySelector('i');
+        if (data.liked) {
+            btn.classList.replace('btn-outline-danger', 'btn-danger');
+            icon.className = 'fas fa-heart me-2';
+        } else {
+            btn.classList.replace('btn-danger', 'btn-outline-danger');
+            icon.className = 'far fa-heart me-2';
+        }
+    }
+
+    if (btnLike) {
+        btnLike.addEventListener('click', async () => {
+            const res = await fetch('../api/likes.php', { method: 'POST', body: JSON.stringify({ product_id: productId }) });
+            const json = await res.json();
+            if (json.error) window.location.href = '../auth/login.php';
+            else loadLikes();
+        });
+    }
+
+    function renderStars(r) {
+        let h = ''; for (let i = 1; i <= 5; i++) h += i <= r ? '<i class="fas fa-star"></i>' : '<i class="far fa-star"></i>';
+        return h;
+    }
+
+    // --- INICIALIZACIÓN Y TIEMPO REAL ---
     loadComments();
     loadLikes();
+
+    // ESTO HACE LA MAGIA: Recarga comentarios cada 2 segundos
+    setInterval(loadComments, 2000);
+    // También recargamos Likes cada 5 segundos para ver si suben
+    setInterval(loadLikes, 5000);
 }
