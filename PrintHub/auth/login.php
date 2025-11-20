@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <div class="barra-lateral-cabecera">
     <h1 class="logo-texto">Print<span class="resaltado">Hub</span></h1>
     <div class="logo">
-      <img src="public/logoPrintHub.jpeg" alt="Logo de PrintHub" />
+      <img src="../public/logoPrintHub.jpeg" alt="Logo de PrintHub" />
     </div>
   </div>
 

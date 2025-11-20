@@ -15,8 +15,8 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    const apiUrl = `http://172.16.221.74:3000/${tipo}?id=${id}`;
-    
+    const apiUrl = `http://localhost:3000/${tipo}?id=${id}`;
+
     console.log("Consultando:", apiUrl);
 
     fetch(apiUrl)
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             let imgPath = item.img;
             if (imgPath && !imgPath.startsWith("http") && !imgPath.startsWith("../")) {
-                imgPath = "../" + imgPath; 
+                imgPath = "../" + imgPath;
             }
 
             contenedor.innerHTML = `
