@@ -1,0 +1,14 @@
+{
+  "likes": [
+    {
+      "id": "2346",
+      "product_id": "2",
+      "user_id": 2
+    },
+    {
+      "id": "14a3",
+      "product_id": "2",
+      "user_id": 1
+    }
+  ]
+}

@@ -27,6 +27,33 @@ services:
       restart: unless-stopped
       networks:
         - default
+  jsonserver3:
+      image: node:20-alpine
+      container_name: jsonserver3
+      working_dir: /app
+      # Observa comments.json en el puerto 3002
+      command: sh -c "npm i -g json-server && json-server --watch /data/comments.json --host 0.0.0.0 --port 3002"
+      volumes:
+        - ./data:/data
+      ports:
+        - "3002:3002"
+      restart: unless-stopped
+      networks:
+        - default
+
+  jsonserver4:
+      image: node:20-alpine
+      container_name: jsonserver4
+      working_dir: /app
+      # Observa likes.json en el puerto 3003
+      command: sh -c "npm i -g json-server && json-server --watch /data/likes.json --host 0.0.0.0 --port 3003"
+      volumes:
+        - ./data:/data
+      ports:
+        - "3003:3003"
+      restart: unless-stopped
+      networks:
+        - default
 
   nginx:
     image: nginx:1.23
