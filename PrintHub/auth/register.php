@@ -102,6 +102,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta charset="UTF-8">
     <title><?= $isEditing ? "Editar Perfil" : "Registro" ?> - PrintHub</title>
     <link rel="stylesheet" href="../src/css/registerStyle.css">
+    <link rel="stylesheet" href="../src/css/aside.css" />
 </head>
 <body>
 

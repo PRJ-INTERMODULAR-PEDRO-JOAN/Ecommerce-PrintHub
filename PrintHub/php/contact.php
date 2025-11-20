@@ -33,6 +33,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Formulario Contacto - PrintHub</title>
   <link rel="stylesheet" href="../src/css/formstyle.css" />
+  <link rel="stylesheet" href="../src/css/footer.css" />
+  <link rel="stylesheet" href="../src/css/aside.css" />
   <link rel="icon" type="image/x-icon" href="/public/logoPrintHubIcon.ico">
 </head>
 <body>

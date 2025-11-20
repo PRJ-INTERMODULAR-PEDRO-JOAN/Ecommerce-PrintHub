@@ -42,7 +42,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <title>Inicio de Sesión - PrintHub</title>
     <link rel="stylesheet" href="../src/css/loginStyle.css">
-</head>
+    <link rel="stylesheet" href="../src/css/aside.css" />
+  </head>
 <body>
 <button class="alternar-menu">☰</button>
 

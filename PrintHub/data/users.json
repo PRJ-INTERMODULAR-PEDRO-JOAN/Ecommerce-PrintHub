@@ -1,3 +1,13 @@
 {
-    "usuaris": []
+    "usuaris": [
+        {
+            "nom": "Mec",
+            "cognoms": "LEc",
+            "email": "pedro@gmail.com",
+            "nom_usuari": "asd",
+            "contrasenya": "$2y$10$8t89T9ILjjPlJIdhu\/Hq9uM3jimwmbScvtPYtc2A2swkm18TolSEO",
+            "data_registre": "2025-11-19T16:28:16+00:00",
+            "id": 1
+        }
+    ]
 }
