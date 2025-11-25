@@ -95,5 +95,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </div>
 
 </body>
-<script src="../src/js/script.js"></script>
+<script src="../src/js/barra-lateral.js"></script>
 </html>

@@ -114,6 +114,6 @@ if (!$user) {
         <a href="logout.php" class="link-logout">🚪 Cerrar Sesión</a>
     </div>
 </body>
-<script src="../src/js/script.js"></script>
+<script src="../src/js/barra-lateral.js"></script>
 
 </html>

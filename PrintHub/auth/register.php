@@ -185,6 +185,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <?php endif; ?>
 </div>
 
+<script src="../src/js/barra-lateral.js"></script>
 <script src="../src/js/register.js"></script>
 
 </body>

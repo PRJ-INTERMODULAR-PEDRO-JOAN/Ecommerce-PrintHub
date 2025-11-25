@@ -1,33 +1,5 @@
-// Selección de elementos
-const barraLateral = document.querySelector(".barra-lateral");
-const botonAlternar = document.querySelector(".alternar-menu");
-
-// Toggle del menú lateral (abrir/cerrar con el mismo botón)
-if (botonAlternar && barraLateral) {
-  botonAlternar.addEventListener("click", () => {
-    barraLateral.classList.toggle("activa");
-  });
-}
-
-// Dropdown del menú lateral
-const botonDesplegable = document.querySelector(".desplegable"); // Selecciona el <li>
-
-if (botonDesplegable) {
-  botonDesplegable.addEventListener("click", (e) => {
-
-    // Solo previene la navegación si se hace clic en el enlace (<a>)
-    if (e.target.tagName === 'A') {
-      e.preventDefault();
-    }
-
-    // Busca el contenido desplegable DENTRO del <li>
-    const contenidoDesplegable = botonDesplegable.querySelector(".contenido-desplegable");
-
-    if (contenidoDesplegable) {
-      contenidoDesplegable.classList.toggle("mostrar");
-    }
-  });
-}
+// src/js/script.js
+import { getDBProducts, getDBPrinters } from './api.js';
 
 // Mensaje botones productos
 document.querySelectorAll('.boton').forEach(button => {
@@ -38,30 +10,37 @@ document.querySelectorAll('.boton').forEach(button => {
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM cargado");
-  cargarProductos();
-  cargarImpresoras();
+  // Verificamos si existen los contenedores antes de cargar para evitar errores en otras páginas
+  if(document.getElementById("contenedor-productos")) {
+      cargarProductos();
+  }
+  if(document.getElementById("contenedor-impresoras")) {
+      cargarImpresoras();
+  }
 });
 
 function cargarProductos() {
-  console.log("Cargando productos desde json-server...");
+  console.log("Cargando productos con api.js...");
 
-  fetch("http://172.16.221.99:3000/productes")
-    .then(response => {
-      if (!response.ok) {
-        throw new Error("No se pudo cargar el JSON desde json-server");
-      }
-      return response.json();
-    })
+  getDBProducts()
     .then(data => {
       console.log("Datos recibidos:", data);
       const contenedor = document.getElementById("contenedor-productos");
+      contenedor.innerHTML = ''; // Limpiar antes de pintar
 
       data.forEach(producto => {
         const card = document.createElement("div");
         card.classList.add("tarjeta-producto");
 
+        // Corrección ruta imagen para que se vea en local
+        let imgPath = producto.img;
+        if (imgPath && !imgPath.startsWith("http") && !imgPath.startsWith("public/")) {
+             // Asumimos que si no tiene http ni public, le falta public/
+             imgPath = "public/" + imgPath; 
+        }
+
         card.innerHTML = `
-                  <img src="${producto.img}" alt="${producto.nom}">
+                  <img src="${imgPath}" alt="${producto.nom}" onerror="this.src='public/marcaDeAgua.png'">
                   <h2>${producto.nom}</h2>
                   <p class="producto-descripcion">${producto.descripcio}</p>
                   <span class="producto-precio">${producto.preu.toFixed(2)} €</span>
@@ -75,25 +54,25 @@ function cargarProductos() {
 }
 
 function cargarImpresoras() {
-  console.log("Cargando impresoras desde json-server...");
+  console.log("Cargando impresoras con api.js...");
 
-  fetch("http://172.16.221.99:3000/impresoras")
-    .then(response => {
-      if (!response.ok) {
-        throw new Error("No se pudo cargar el JSON desde json-server");
-      }
-      return response.json();
-    })
+  getDBPrinters()
     .then(data => {
       console.log("Datos recibidos:", data);
       const contenedor = document.getElementById("contenedor-impresoras");
+      contenedor.innerHTML = '';
 
       data.forEach(impresora => {
         const card = document.createElement("div");
         card.classList.add("tarjeta-producto");
 
+        let imgPath = impresora.img;
+        if (imgPath && !imgPath.startsWith("http") && !imgPath.startsWith("public/")) {
+             imgPath = "public/" + imgPath; 
+        }
+
         card.innerHTML = `
-                  <img src="${impresora.img}" alt="${impresora.nom}">
+                  <img src="${imgPath}" alt="${impresora.nom}" onerror="this.src='public/marcaDeAgua.png'">
                   <h2>${impresora.nom}</h2>
                   <p class="producto-descripcion">${impresora.descripcio}</p>
                   <span class="producto-precio">${impresora.preu.toFixed(2)} €</span>
@@ -105,4 +84,3 @@ function cargarImpresoras() {
     })
     .catch(err => console.error("Error cargando impresoras:", err));
 }
-
