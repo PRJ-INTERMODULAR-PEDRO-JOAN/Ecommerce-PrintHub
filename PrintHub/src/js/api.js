@@ -1,9 +1,9 @@
 // src/js/api.js
 
-const SERVER_PRODUCTS = "http://35.174.244.90:3000"; // products.json
-const SERVER_USERS    = "http://35.174.244.90:3001"; // users.json
-const SERVER_COMMENTS = "http://35.174.244.90:3002"; // comments.json
-const SERVER_LIKES    = "http://35.174.244.90:3003"; // likes.json
+const SERVER_PRODUCTS = "https://app.printhub.es/productos/"; // products.json
+const SERVER_USERS    = "https://app.printhub.es/usuarios/"; // users.json
+const SERVER_COMMENTS = "https://app.printhub.es/comments/"; // comments.json
+const SERVER_LIKES    = "https://app.printhub.es/likes/"; // likes.json
 
 // --- PRODUCTOS E IMPRESORAS ---
 
