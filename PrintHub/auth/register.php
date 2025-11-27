@@ -103,6 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <title><?= $isEditing ? "Editar Perfil" : "Registro" ?> - PrintHub</title>
     <link rel="stylesheet" href="../src/css/registerStyle.css">
     <link rel="stylesheet" href="../src/css/aside.css" />
+    <link rel="icon" type="image/x-icon" href="../public/logoPrintHubIcon.ico" />
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>

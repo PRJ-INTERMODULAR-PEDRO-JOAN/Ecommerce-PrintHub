@@ -53,6 +53,7 @@ if (!$user) {
     <title>Mi Perfil - PrintHub</title>
     <link rel="stylesheet" href="../src/css/perfilStyle.css">
     <link rel="stylesheet" href="../src/css/aside.css" />
+    <link rel="icon" type="image/x-icon" href="../public/logoPrintHubIcon.ico" />
   </head>
 <body>
 <button class="alternar-menu">☰</button>

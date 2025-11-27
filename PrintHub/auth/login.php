@@ -63,6 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Inicio de Sesión - PrintHub</title>
     <link rel="stylesheet" href="../src/css/loginStyle.css">
     <link rel="stylesheet" href="../src/css/aside.css" />
+    <link rel="icon" type="image/x-icon" href="../public/logoPrintHubIcon.ico" />
 
     <!-- SCRIPT NECESARIO PARA GOOGLE RECAPTCHA -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
