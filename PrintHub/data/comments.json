@@ -15,6 +15,14 @@
       "text": "meh",
       "rating": 3,
       "date": "2025-11-20 15:38:59"
+    },
+    {
+      "id": "d3a5",
+      "product_id": "1",
+      "user_id": 1,
+      "text": "asdasdasdasd",
+      "rating": 1,
+      "date": "2025-11-27 15:04:13"
     }
   ]
 }

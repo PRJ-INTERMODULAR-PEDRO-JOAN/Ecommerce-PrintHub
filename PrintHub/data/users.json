@@ -1,22 +1,31 @@
 {
-  "usuaris": [
-    {
-      "nom": "Mec",
-      "cognoms": "LEc",
-      "email": "pedro@gmail.com",
-      "nom_usuari": "asd",
-      "contrasenya": "$2y$10$8t89T9ILjjPlJIdhu/Hq9uM3jimwmbScvtPYtc2A2swkm18TolSEO",
-      "data_registre": "2025-11-19T16:28:16+00:00",
-      "id": "1"
-    },
-    {
-      "nom": "Joan",
-      "cognoms": "Brotons",
-      "email": "admin@gmail.com",
-      "nom_usuari": "admin",
-      "contrasenya": "$2y$10$8ufz0DNxMtSdyxOE4iD3nOpx7U3gL0O70oSk3YNT9tuTpp.awpAoS",
-      "data_registre": "2025-11-20T15:17:32+00:00",
-      "id": "2"
-    }
-  ]
+    "usuaris": [
+        {
+            "nom": "Mec",
+            "cognoms": "LEC",
+            "email": "pedro@gmail.com",
+            "nom_usuari": "asd",
+            "contrasenya": "$2y$10$8t89T9ILjjPlJIdhu\/Hq9uM3jimwmbScvtPYtc2A2swkm18TolSEO",
+            "data_registre": "2025-11-19T16:28:16+00:00",
+            "id": "1"
+        },
+        {
+            "nom": "Joan",
+            "cognoms": "Brotons",
+            "email": "admin@gmail.com",
+            "nom_usuari": "admin",
+            "contrasenya": "$2y$10$8ufz0DNxMtSdyxOE4iD3nOpx7U3gL0O70oSk3YNT9tuTpp.awpAoS",
+            "data_registre": "2025-11-20T15:17:32+00:00",
+            "id": "2"
+        },
+        {
+            "nom": "Mec",
+            "cognoms": "LEc",
+            "email": "pedro@gmail.com",
+            "nom_usuari": "asdasdasd",
+            "contrasenya": "$2y$10$zG\/ovpM9Kb32n2SW7qVuAOWPkqTEteaxfDjMOpW\/cxAaVTKflH5p.",
+            "data_registre": "2025-11-27T14:39:04+00:00",
+            "id": 3
+        }
+    ]
 }

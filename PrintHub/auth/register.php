@@ -103,6 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <title><?= $isEditing ? "Editar Perfil" : "Registro" ?> - PrintHub</title>
     <link rel="stylesheet" href="../src/css/registerStyle.css">
     <link rel="stylesheet" href="../src/css/aside.css" />
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
 
@@ -154,27 +155,33 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </div>
 
     <?php if (!$success || $isEditing): ?>
-    <form id="registerForm" method="POST">
+        <form id="registerForm" method="POST" novalidate>
 
-        <label>Nombre</label>
-        <input type="text" name="nom" value="<?= $isEditing ? htmlspecialchars($currentUser['nom']) : '' ?>">
+<label>Nombre</label>
+<input type="text" name="nom" value="<?= $isEditing ? htmlspecialchars($currentUser['nom']) : '' ?>">
 
-        <label>Apellidos</label>
-        <input type="text" name="cognoms" value="<?= $isEditing ? htmlspecialchars($currentUser['cognoms']) : '' ?>">
+<label>Apellidos</label>
+<input type="text" name="cognoms" value="<?= $isEditing ? htmlspecialchars($currentUser['cognoms']) : '' ?>">
 
-        <label>Correo electrónico</label>
-        <input type="email" name="email" value="<?= $isEditing ? htmlspecialchars($currentUser['email']) : '' ?>">
+<label>Correo electrónico</label>
+<input type="email" name="email" value="<?= $isEditing ? htmlspecialchars($currentUser['email']) : '' ?>">
 
-        <label>Nombre de usuario</label>
-        <input type="text" name="username"
-               value="<?= $isEditing ? htmlspecialchars($currentUser['nom_usuari']) : '' ?>"
-               <?= $isEditing ? 'readonly style="background:#eee;"' : '' ?>>
+<label>Nombre de usuario</label>
+<input type="text" name="username"
+       value="<?= $isEditing ? htmlspecialchars($currentUser['nom_usuari']) : '' ?>"
+       <?= $isEditing ? 'readonly style="background:#eee;"' : '' ?>>
 
-        <label><?= $isEditing ? "Nueva contraseña (opcional)" : "Contraseña" ?></label>
-        <input type="password" name="password">
+<label><?= $isEditing ? "Nueva contraseña (opcional)" : "Contraseña" ?></label>
+<input type="password" name="password">
 
-        <button type="submit"><?= $isEditing ? "Guardar cambios" : "Registrarse" ?></button>
-    </form>
+<!-- RECAPTCHA -->
+<?php if (!$isEditing): ?>
+<div class="g-recaptcha" data-sitekey="6LfmChosAAAAAO1KhMNCFkQiKGDuwLH6Ss4kc5Ns"></div>
+<?php endif; ?>
+
+<button type="submit"><?= $isEditing ? "Guardar cambios" : "Registrarse" ?></button>
+</form>
+
 
     <?php if ($isEditing): ?>
         <p><a href="profile.php">🔙 Volver al perfil</a></p>

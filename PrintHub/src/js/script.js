@@ -44,7 +44,7 @@ function cargarProductos() {
                   <h2>${producto.nom}</h2>
                   <p class="producto-descripcion">${producto.descripcio}</p>
                   <span class="producto-precio">${producto.preu.toFixed(2)} €</span>
-                  <a href="src/ver_producto.html?id=${producto.id}&tipo=productes" class="boton">Ver Detalles</a>              
+                  <a href="src/productDetail.php?id=${producto.id}&tipo=productes" class="boton">Ver Detalles</a>              
                 `;
 
         contenedor.appendChild(card);
@@ -76,7 +76,7 @@ function cargarImpresoras() {
                   <h2>${impresora.nom}</h2>
                   <p class="producto-descripcion">${impresora.descripcio}</p>
                   <span class="producto-precio">${impresora.preu.toFixed(2)} €</span>
-                  <a href="src/ver_producto.html?id=${impresora.id}&tipo=impresoras" class="boton">Ver Detalles</a>       
+                  <a href="src/productDetail.php?id=${impresora.id}&tipo=impresoras" class="boton">Ver Detalles</a>       
                 `;
 
         contenedor.appendChild(card);

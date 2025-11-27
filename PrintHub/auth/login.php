@@ -11,27 +11,47 @@ if (isset($_SESSION['user_id'])) {
 $error = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = trim($_POST['username']);
-    $password = $_POST['password'];
 
-    // 1. Buscar usuario
-    $user = findUserByUsername($username);
+    /* -------------------------------------------------
+       1. VALIDAR reCAPTCHA con Google
+    -------------------------------------------------- */
 
-    // 2. Verificar contraseña
-    if ($user && password_verify($password, $user['contrasenya'])) {
-        // 3. Crear sesión segura
-        session_regenerate_id(true); // Prevención de Session Fixation
-        $_SESSION['user_id'] = $user['id'];
-        $_SESSION['username'] = $user['nom_usuari'];
+    $secretKey = "6LfmChosAAAAAHaTmvsOsHr5ml9SEN6EzIZstsXZ"; // ← PON TU SECRET KEY AQUÍ
+    $captchaResponse = $_POST['g-recaptcha-response'];
 
-        // 4. Crear cookie (Opcional)
-        // Expira en 1 hora (3600s)
-        setcookie('user_id', $user['id'], time() + 3600, "/");
+    $verify = file_get_contents(
+        "https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$captchaResponse"
+    );
 
-        header("Location: profile.php");
-        exit;
+    $captchaSuccess = json_decode($verify);
+
+    if (!$captchaSuccess->success) {
+        $error = "Verifica el reCAPTCHA.";
     } else {
-        $error = "Usuario o contraseña incorrectos.";
+
+        /* -------------------------------------------------
+           2. PROCESAR LOGIN SOLO SI EL CAPTCHA ES VÁLIDO
+        -------------------------------------------------- */
+
+        $username = trim($_POST['username']);
+        $password = $_POST['password'];
+
+        // Buscar usuario
+        $user = findUserByUsername($username);
+
+        // Verificar contraseña
+        if ($user && password_verify($password, $user['contrasenya'])) {
+            session_regenerate_id(true);
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['username'] = $user['nom_usuari'];
+
+            setcookie('user_id', $user['id'], time() + 3600, "/");
+
+            header("Location: profile.php");
+            exit;
+        } else {
+            $error = "Usuario o contraseña incorrectos.";
+        }
     }
 }
 ?>
@@ -43,7 +63,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Inicio de Sesión - PrintHub</title>
     <link rel="stylesheet" href="../src/css/loginStyle.css">
     <link rel="stylesheet" href="../src/css/aside.css" />
-  </head>
+
+    <!-- SCRIPT NECESARIO PARA GOOGLE RECAPTCHA -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
 <body>
 <button class="alternar-menu">☰</button>
 
@@ -83,17 +106,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <div class="container">
     <h2>🔐 Iniciar Sesión</h2>
-    <?php if($error): ?><p class="error"><?= $error ?></p><?php endif; ?>
-    
-    <form action="login.php" method="POST">
-        <input type="text" name="username" placeholder="Nombre de usuario" required>
-        <input type="password" name="password" placeholder="Contraseña" required>
+
+    <!-- Span para errores -->
+    <span class="error" id="formError" style="display:none;"></span>
+
+    <form id="loginForm" action="login.php" method="POST" novalidate>
+        <input type="text" name="username" id="username" placeholder="Nombre de usuario" required>
+        <input type="password" name="password" id="password" placeholder="Contraseña" required>
+
+        <div class="g-recaptcha" data-sitekey="6LfmChosAAAAAO1KhMNCFkQiKGDuwLH6Ss4kc5Ns"></div>
+
         <button type="submit">Entrar</button>
     </form>
 
     <p>¿No tienes cuenta? <a href="register.php">Regístrate</a></p>
 </div>
 
+
+
 </body>
+<script src="../src/js/login-validation.js"></script>
 <script src="../src/js/barra-lateral.js"></script>
 </html>

@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <ul class="iconos-utilidad">
       <li><a href="#" aria-label="Carrito">🛒</a></li>
-      <li><a href="#" aria-label="Iniciar Sesión">👤</a></li>
+      <li><a href="../auth/login.php" aria-label="Iniciar Sesión">👤</a></li>
     </ul>
 
     <h3 class="etiqueta-menu">Menú</h3>
@@ -136,10 +136,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
           </h2>
           <br>
           <div>
-            <a class="iconos-sociales" href="#"><img src="../public/facebook.jpg" alt="Facebook"></a>
-            <a class="iconos-sociales" href="#"><img src="../public/linkedIn.png" alt="LinkedIn"></a>
-            <a class="iconos-youtube" href="#"><img src="../public/youtube.png" alt="YouTube"></a>
-            <a class="iconos-sociales" href="#"><img src="../public/insta.jpg" alt="Instagram"></a>
+            <a class="iconos-sociales" href="#"><img src="../public/facebook.svg" alt="Facebook"></a>
+            <a class="iconos-sociales" href="#"><img src="../public/linkedin.svg" alt="LinkedIn"></a>
+            <a class="iconos-sociales" href="#"><img src="../public/youtube.svg" alt="YouTube"></a>
+            <a class="iconos-sociales" href="#"><img src="../public/insta.svg" alt="Instagram"></a>
           </div>
         </div>
   
