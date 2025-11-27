@@ -1,6 +1,6 @@
 // src/js/api.js
 
-const SERVER_PRODUCTS = "https://app.printhub.es/productos/"; // products.json
+const SERVER_PRODUCTS = "https://app.printhub.es/catalogo/"; // products.json
 const SERVER_USERS    = "https://app.printhub.es/usuarios/"; // users.json
 const SERVER_COMMENTS = "https://app.printhub.es/comments/"; // comments.json
 const SERVER_LIKES    = "https://app.printhub.es/likes/"; // likes.json
