@@ -43,7 +43,7 @@
         "sku": "IMP-CRE-E3V3",
         "nom": "Creality Ender 3 V3 SE",
         "descripcio": "Impresora FDM d'entrada, anivellament automàtic i muntatge ràpid.",
-        "img": "public/ender3_v3_se.jpg",
+        "img": "public/ender.png",
         "preu": 219.00,
         "estoc": 15
     },
@@ -52,7 +52,7 @@
         "sku": "IMP-PRU-MK4",
         "nom": "Original Prusa MK4",
         "descripcio": "La successora de la llegendària MK3. Fiabilitat total i Nextruder.",
-        "img": "public/prusa_mk4.jpg",
+        "img": "public/prusa.png",
         "preu": 889.00,
         "estoc": 8
     },
@@ -61,7 +61,7 @@
         "sku": "IMP-BAM-X1C",
         "nom": "Bambu Lab X1 Carbon",
         "descripcio": "Impresora CoreXY d'alta velocitat amb tancament i IA.",
-        "img": "public/bambulab_x1c.jpg",
+        "img": "public/bambu.png",
         "preu": 1349.50,
         "estoc": 3
     },
@@ -70,7 +70,7 @@
         "sku": "IMP-ELE-SAT4",
         "nom": "Elegoo Saturn 4 Ultra",
         "descripcio": "Impresora de resina 12K per a un detall increïble en miniatures.",
-        "img": "public/elegoo_saturn4.jpg",
+        "img": "public/elego.png",
         "preu": 399.99,
         "estoc": 12
     }
