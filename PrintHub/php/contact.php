@@ -13,7 +13,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   $terms = isset($_POST["terms"]);
   $compro = isset($_POST["compro"]);
 
-  //prueba
   // Solo valida si no está marcada la comprobación cliente
   
     if (strlen($name) < 2) $errors[] = "El nombre debe tener al menos 2 caracteres.";
