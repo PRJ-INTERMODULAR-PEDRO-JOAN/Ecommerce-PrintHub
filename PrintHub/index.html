@@ -1,243 +1,245 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PrintHub</title>
 
-     <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap-5.3.8-dist/css/bootstrap.min.css" />
 
     <link rel="stylesheet" href="src/css/styles.css" />
     <link rel="stylesheet" href="src/css/footer.css" />
     <link rel="stylesheet" href="src/css/aside.css" />
-    
+
     <link rel="icon" type="image/x-icon" href="public/logoPrintHubIcon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Roboto+Mono:wght@700&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+    <script type="module">
+      import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js'
+
+      createChat({
+        webhookUrl: 'http://localhost:5678/webhook/2f4e8def-1604-43d9-a0c4-5677de10f699/chat',
+      })
+    </script>
   </head>
   <body>
-        <button 
-        class="alternar-menu"
-        aria-label="Abrir menú"
-        aria-expanded="false"
-        aria-controls="menu-lateral">
-        ☰
-        </button>
+    <button class="alternar-menu" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-lateral">☰</button>
 
-        <aside class="barra-lateral" id="menu-lateral">
-        <div class="barra-lateral-cabecera">
-            <h1 class="logo-texto">Print<span class="resaltado">Hub</span></h1>
-            <div class="logo"><img src="public/logoPrintHub.jpeg" alt="Logo de PrintHub" /></div>
-        </div>
-        <ul class="iconos-utilidad">
-            <li><a href="#" aria-label="Carrito">🛒</a></li>
-            <li><a href="auth/profile.php" aria-label="Iniciar Sesión">👤</a></li>
-        </ul>
-        <h3 class="etiqueta-menu">Menú</h3>
-        <nav>
-            <ul>
-                <li><a href="../index.html">Inicio</a></li>
-                <li class="desplegable">
-                    <a href="#">Maquetas Personalizadas ▾</a>
-                    <ul class="contenido-desplegable">
-                        <li><a href="#">Videojuegos</a></li>
-                        <li><a href="#">Arquitectura</a></li>
-                        <li><a href="#">Automóviles</a></li>
-                    </ul>
-                </li>
-                <li><a href="#como-funciona">Diseñar Maquetas</a></li>
-                <li><a href="src/galeria.html">Galería de Proyectos</a></li>
-                <li><a href="#impresoras">Impresoras 3D</a></li>
-                <li><a href="php/contact.php">Formulario Contacto</a></li>
-                <li><a href="src/admin_importar.html">Importar Información</a></li>
+    <aside class="barra-lateral" id="menu-lateral">
+      <div class="barra-lateral-cabecera">
+        <h1 class="logo-texto">Print<span class="resaltado">Hub</span></h1>
+        <div class="logo"><img src="public/logoPrintHub.jpeg" alt="Logo de PrintHub" /></div>
+      </div>
+      <ul class="iconos-utilidad">
+        <li><a href="#" aria-label="Carrito">🛒</a></li>
+        <li><a href="auth/profile.php" aria-label="Iniciar Sesión">👤</a></li>
+      </ul>
+      <h3 class="etiqueta-menu">Menú</h3>
+      <nav>
+        <ul>
+          <li><a href="../index.html">Inicio</a></li>
+          <li class="desplegable">
+            <a href="#">Maquetas Personalizadas ▾</a>
+            <ul class="contenido-desplegable">
+              <li><a href="#">Videojuegos</a></li>
+              <li><a href="#">Arquitectura</a></li>
+              <li><a href="#">Automóviles</a></li>
             </ul>
-        </nav>
+          </li>
+          <li><a href="#como-funciona">Diseñar Maquetas</a></li>
+          <li><a href="src/galeria.html">Galería de Proyectos</a></li>
+          <li><a href="#impresoras">Impresoras 3D</a></li>
+          <li><a href="php/contact.php">Formulario Contacto</a></li>
+          <li><a href="src/admin_importar.html">Importar Información</a></li>
+        </ul>
+      </nav>
     </aside>
 
     <main class="contenido-principal">
       <a href="#destacados" class="enlace-banner">
         <div class="banner">
-          <div class="banner-texto">
-            ¡Oferta especial de Navidad! 🦌🎅 Solo por tiempo limitado, hasta el 31 de diciembre.
-          </div>
+          <div class="banner-texto">¡Oferta especial de Navidad! 🦌🎅 Solo por tiempo limitado, hasta el 31 de diciembre.</div>
         </div>
       </a>
 
-      <section class="hero" style="background: url('public/fondoPrincipio.jpg') no-repeat center center/cover;">
+      <section class="hero" style="background: url('public/fondoPrincipio.jpg') no-repeat center center/cover">
         <div class="container h-100">
-            <div class="row h-100 hero-fila">
-                <div class="col-12 hero-contenido">
-                    <h1>Bienvenido/a a Print<span class="resaltado">Hub</span></h1>
-                    <p>Innovación y calidad en cada producto</p>
-                    <a href="#destacados" class="flecha">&#x25BC;</a>
-                </div>
+          <div class="row h-100 hero-fila">
+            <div class="col-12 hero-contenido">
+              <h1>Bienvenido/a a Print<span class="resaltado">Hub</span></h1>
+              <p>Innovación y calidad en cada producto</p>
+              <a href="#destacados" class="flecha">&#x25BC;</a>
             </div>
+          </div>
         </div>
       </section>
 
-      <section class="creeper-hero" style="background: url('public/creeper.jpg') no-repeat center center/cover;">
+      <section class="creeper-hero" style="background: url('public/creeper.jpg') no-repeat center center/cover">
         <div class="container h-100">
-            <div class="row h-100 creeper-fila">
-                <div class="col-12 creeper-contenido">
-                    <h1>NUEVO CREEPER XXL</h1>
-                    <p>Suéltalo que explota</p>
-                    <div class="creeper-botones">
-                        <button class="boton-creeper">MÁS INFORMACIÓN</button>
-                        <button class="boton-creeper">COMPRAR</button>
-                    </div>
-                </div>
+          <div class="row h-100 creeper-fila">
+            <div class="col-12 creeper-contenido">
+              <h1>NUEVO CREEPER XXL</h1>
+              <p>Suéltalo que explota</p>
+              <div class="creeper-botones">
+                <button class="boton-creeper">MÁS INFORMACIÓN</button>
+                <button class="boton-creeper">COMPRAR</button>
+              </div>
             </div>
+          </div>
         </div>
       </section>
 
       <section id="destacados" class="productos-destacados">
         <div class="container">
-            <h1>Productos Destacados</h1>
-            <div id="contenedor-productos" class="contenedor-productos"></div>
+          <h1>Productos Destacados</h1>
+          <div id="contenedor-productos" class="contenedor-productos"></div>
         </div>
       </section>
-  
+
       <section id="impresoras" class="impresoras-section">
         <div class="container">
-            <h1 class="impresoras-titulo">Nuestras Impresoras 3D</h1>
-            <div id="contenedor-impresoras" class="contenedor-productos"></div>
+          <h1 class="impresoras-titulo">Nuestras Impresoras 3D</h1>
+          <div id="contenedor-impresoras" class="contenedor-productos"></div>
         </div>
       </section>
-      
+
       <section class="seccion-sobre-nosotros">
         <div class="container">
-            <div class="row gy-4 sobre-nosotros-fila">
-                <div class="col-12 col-md-12 col-lg-5 gif-sobre-nosotros">
-                    <img src="public/impresora.gif" alt="GIF representativo de PrintHub" class="img-fluid" />
-                </div>
-                <div class="col-12 col-md-12 col-lg-7 texto-sobre-nosotros">
-                    <h2>Sobre Nosotros</h2>
-                    <p>En PrintHub, nos especializamos en la creación de maquetas personalizadas utilizando tecnología de impresión 3D de última generación...</p>
-                    <p>Ya sea que busques una figura de tu videojuego favorito, una maqueta arquitectónica o un modelo de automóvil...</p>
-                </div>
+          <div class="row gy-4 sobre-nosotros-fila">
+            <div class="col-12 col-md-12 col-lg-5 gif-sobre-nosotros">
+              <img src="public/impresora.gif" alt="GIF representativo de PrintHub" class="img-fluid" />
             </div>
+            <div class="col-12 col-md-12 col-lg-7 texto-sobre-nosotros">
+              <h2>Sobre Nosotros</h2>
+              <p>En PrintHub, nos especializamos en la creación de maquetas personalizadas utilizando tecnología de impresión 3D de última generación...</p>
+              <p>Ya sea que busques una figura de tu videojuego favorito, una maqueta arquitectónica o un modelo de automóvil...</p>
+            </div>
+          </div>
         </div>
       </section>
 
       <section id="como-funciona" class="seccion-como-funciona">
         <div class="container contenedor-como-funciona">
-            <div class="titulo-funciona">
-                <h2>¿Tienes una idea? La hacemos realidad</h2>
-                <p class="subtitulo-como-funciona">Nuestro proceso de diseño personalizado en 4 simples pasos.</p>
-            </div>
+          <div class="titulo-funciona">
+            <h2>¿Tienes una idea? La hacemos realidad</h2>
+            <p class="subtitulo-como-funciona">Nuestro proceso de diseño personalizado en 4 simples pasos.</p>
+          </div>
 
-            <div class="row g-4 pasos-como-funciona">
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="tarjeta-paso h-100">
-                        <span class="numero-paso">1</span>
-                        <h3>Cuéntanos tu idea</h3>
-                        <p>Rellena nuestro formulario de contacto con tu boceto, fotos o una simple descripción.</p>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="tarjeta-paso h-100">
-                        <span class="numero-paso">2</span>
-                        <h3>Diseño y Boceto 3D</h3>
-                        <p>Nuestro equipo creará un modelo 3D y te lo enviará para tu aprobación.</p>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="tarjeta-paso h-100">
-                        <span class="numero-paso">3</span>
-                        <h3>Impresión y Calidad</h3>
-                        <p>Usamos los mejores materiales (resina, PLA, PETG) para imprimir tu pieza con la máxima precisión.</p>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-3">
-                    <div class="tarjeta-paso h-100">
-                        <span class="numero-paso">4</span>
-                        <h3>Recíbelo en casa</h3>
-                        <p>Empaquetamos tu creación con cuidado y te la enviamos lista para disfrutar.</p>
-                    </div>
-                </div>
+          <div class="row g-4 pasos-como-funciona">
+            <div class="col-12 col-md-6 col-lg-3">
+              <div class="tarjeta-paso h-100">
+                <span class="numero-paso">1</span>
+                <h3>Cuéntanos tu idea</h3>
+                <p>Rellena nuestro formulario de contacto con tu boceto, fotos o una simple descripción.</p>
+              </div>
             </div>
+            <div class="col-12 col-md-6 col-lg-3">
+              <div class="tarjeta-paso h-100">
+                <span class="numero-paso">2</span>
+                <h3>Diseño y Boceto 3D</h3>
+                <p>Nuestro equipo creará un modelo 3D y te lo enviará para tu aprobación.</p>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+              <div class="tarjeta-paso h-100">
+                <span class="numero-paso">3</span>
+                <h3>Impresión y Calidad</h3>
+                <p>Usamos los mejores materiales (resina, PLA, PETG) para imprimir tu pieza con la máxima precisión.</p>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+              <div class="tarjeta-paso h-100">
+                <span class="numero-paso">4</span>
+                <h3>Recíbelo en casa</h3>
+                <p>Empaquetamos tu creación con cuidado y te la enviamos lista para disfrutar.</p>
+              </div>
+            </div>
+          </div>
 
-            <div class="boton-container">
-                <a href="php/contact.php" class="boton-cta-primario">Empezar mi Proyecto</a>
-            </div>
+          <div class="boton-container">
+            <a href="php/contact.php" class="boton-cta-primario">Empezar mi Proyecto</a>
+          </div>
         </div>
       </section>
 
       <section class="video">
         <div class="container">
-            <div class="video-wrapper">
-                <h2>Descubre Más Sobre PrintHub</h2>
-                <div class="video-contenedor">
-                    <video autoplay loop muted playsinline class="img-fluid">
-                        <source src="public/Presentacion_Clientes_sin_con.mp4" type="video/mp4" />
-                    </video>
-                </div>
+          <div class="video-wrapper">
+            <h2>Descubre Más Sobre PrintHub</h2>
+            <div class="video-contenedor">
+              <video autoplay loop muted playsinline class="img-fluid">
+                <source src="public/Presentacion_Clientes_sin_con.mp4" type="video/mp4" />
+              </video>
             </div>
+          </div>
         </div>
       </section>
 
       <section class="seccion-testimonios">
         <div class="container">
-            <h2>Qué dicen nuestros clientes</h2>
-            <div class="row g-4 contenedor-testimonios">
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="tarjeta-testimonio h-100">
-                        <p class="cita-testimonio">"¡Increíble! Pedí una maqueta de mi coche soñado y el nivel de detalle es espectacular. 100% recomendado."</p>
-                        <span class="autor-testimonio">- Carlos G.</span>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="tarjeta-testimonio h-100">
-                        <p class="cita-testimonio">"El servicio de diseño personalizado es genial. Captaron mi idea a la primera y la figura de Aatrox quedó perfecta."</p>
-                        <span class="autor-testimonio">- Laura M.</span>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="tarjeta-testimonio h-100">
-                        <p class="cita-testimonio">"Compré mi primera impresora 3D aquí y el soporte fue excelente. Muy contenta con la Ender 3."</p>
-                        <span class="autor-testimonio">- Javier R.</span>
-                    </div>
-                </div>
+          <h2>Qué dicen nuestros clientes</h2>
+          <div class="row g-4 contenedor-testimonios">
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="tarjeta-testimonio h-100">
+                <p class="cita-testimonio">"¡Increíble! Pedí una maqueta de mi coche soñado y el nivel de detalle es espectacular. 100% recomendado."</p>
+                <span class="autor-testimonio">- Carlos G.</span>
+              </div>
             </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="tarjeta-testimonio h-100">
+                <p class="cita-testimonio">"El servicio de diseño personalizado es genial. Captaron mi idea a la primera y la figura de Aatrox quedó perfecta."</p>
+                <span class="autor-testimonio">- Laura M.</span>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="tarjeta-testimonio h-100">
+                <p class="cita-testimonio">"Compré mi primera impresora 3D aquí y el soporte fue excelente. Muy contenta con la Ender 3."</p>
+                <span class="autor-testimonio">- Javier R.</span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       <footer class="pie-pagina">
         <div class="pie-pagina-contenedor">
-            <div class="pie-pagina-izquierda">
-                <h2 class="logo">Print<span class="resaltado">Hub</span></h2><br />
-                <div>
-                  <a class="iconos-sociales" href="#"><img src="public/facebook.svg" alt="Facebook"/></a>
-                  <a class="iconos-sociales" href="#"><img src="public/linkedin.svg" alt="LinkedIn"/></a>
-                  <a class="iconos-sociales" href="#"><img src="public/youtube.svg" alt="YouTube"/></a>
-                  <a class="iconos-sociales" href="#"><img src="public/insta.svg" alt="Instagram"/></a>
-                </div>
+          <div class="pie-pagina-izquierda">
+            <h2 class="logo">Print<span class="resaltado">Hub</span></h2>
+            <br />
+            <div>
+              <a class="iconos-sociales" href="#"><img src="public/facebook.svg" alt="Facebook" /></a>
+              <a class="iconos-sociales" href="#"><img src="public/linkedin.svg" alt="LinkedIn" /></a>
+              <a class="iconos-sociales" href="#"><img src="public/youtube.svg" alt="YouTube" /></a>
+              <a class="iconos-sociales" href="#"><img src="public/insta.svg" alt="Instagram" /></a>
             </div>
-            <div class="pie-pagina-centro">
-                <img src="public/fotterImage.jpg" alt="Imagen Empresa 3D" />
+          </div>
+          <div class="pie-pagina-centro">
+            <img src="public/fotterImage.jpg" alt="Imagen Empresa 3D" />
+          </div>
+          <div class="pie-pagina-derecha">
+            <div class="servicios">
+              <h3>Servicios y productos</h3>
+              <ul>
+                <li><a href="#">Fabricación aditiva 3D</a></li>
+                <li><a href="#">Servicio de Impresión 3D</a></li>
+                <li><a href="#">Prototipado 3D</a></li>
+                <li><a href="#">Ingeniería y diseño</a></li>
+              </ul>
             </div>
-            <div class="pie-pagina-derecha">
-                <div class="servicios">
-                  <h3>Servicios y productos</h3>
-                  <ul>
-                    <li><a href="#">Fabricación aditiva 3D</a></li>
-                    <li><a href="#">Servicio de Impresión 3D</a></li>
-                    <li><a href="#">Prototipado 3D</a></li>
-                    <li><a href="#">Ingeniería y diseño</a></li>
-                  </ul>
-                </div>
-                <div class="contacto">
-                  <h3>Contacto</h3>
-                  <ul>
-                    <li>📞 (+34) 951 753 852</li>
-                    <li>📧 <a href="mailto:printhub@contact.me">printhub@contact.me</a></li>
-                    <li>📍 Partida Cotes Altes, 27, 03804 Alcoi, Alicante</li>
-                    <li>🕒 Lunes – Viernes: 8:00 – 13:30</li>
-                  </ul>
-                </div>
+            <div class="contacto">
+              <h3>Contacto</h3>
+              <ul>
+                <li>📞 (+34) 951 753 852</li>
+                <li>📧 <a href="mailto:printhub@contact.me">printhub@contact.me</a></li>
+                <li>📍 Partida Cotes Altes, 27, 03804 Alcoi, Alicante</li>
+                <li>🕒 Lunes – Viernes: 8:00 – 13:30</li>
+              </ul>
             </div>
+          </div>
         </div>
       </footer>
     </main>
