@@ -18,9 +18,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   </head>
   <body>
-    <button class="alternar-menu">☰</button>
+        <button 
+        class="alternar-menu"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="menu-lateral">
+        ☰
+        </button>
 
-    <aside class="barra-lateral">
+        <aside class="barra-lateral" id="menu-lateral">
         <div class="barra-lateral-cabecera">
             <h1 class="logo-texto">Print<span class="resaltado">Hub</span></h1>
             <div class="logo"><img src="public/logoPrintHub.jpeg" alt="Logo de PrintHub" /></div>
@@ -165,7 +171,7 @@
                 <h2>Descubre Más Sobre PrintHub</h2>
                 <div class="video-contenedor">
                     <video autoplay loop muted playsinline class="img-fluid">
-                        <source src="public/Presentacion_Clientes.mp4" type="video/mp4" />
+                        <source src="public/Presentacion_Clientes_sin_con.mp4" type="video/mp4" />
                     </video>
                 </div>
             </div>
@@ -210,7 +216,7 @@
                 </div>
             </div>
             <div class="pie-pagina-centro">
-                <img src="public/fotterImage.jpg" alt="Imagen global 3D" />
+                <img src="public/fotterImage.jpg" alt="Imagen Empresa 3D" />
             </div>
             <div class="pie-pagina-derecha">
                 <div class="servicios">
